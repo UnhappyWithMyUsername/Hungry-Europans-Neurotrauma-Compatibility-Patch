@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<contentpackage name="Hungry Europans - Neurotrauma Compatibility Patch" modversion="1.0.2" corepackage="False" steamworkshopid="3222593240" gameversion="1.4.6.0">
+  <Afflictions file="%ModDir%/Content/Afflictions.xml" />
+  <Item file="%ModDir%/Content/Beds.xml" />
+  <Item file="%ModDir%/Content/Drinks.xml" />
+</contentpackage>
