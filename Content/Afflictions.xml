@@ -69,19 +69,14 @@
           <Conditional HideFace="eq False" />
         </StatusEffect>
         <StatusEffect target="Character" duration="1" disabledeltatime="true">
-          <ReduceAffliction identifier="he-stuffed" strength="10"/>
-          <ReduceAffliction identifier="he-increasedswimmingspeedcrawler" strength="300"/>
-          <ReduceAffliction identifier="he-damageresistancemoloch" strength="300"/>
-          <ReduceAffliction identifier="he-damageresistancemudraptor" strength="300"/>
-          <ReduceAffliction identifier="he-increasedwalkingspeedmudraptor" strength="300"/>
-          <ReduceAffliction identifier="he-increasedmeleedamagehammerhead" strength="300"/>
-          <ReduceAffliction identifier="he-pressureresistance" strength="300"/>
-          <!--<ReduceAffliction identifier="AnyFoodAffliction" strength="100"/>-->
+          <ReduceAffliction identifier="he-stuffed" strength="10" />
+          <ReduceAffliction type="foodbuff" strength="300" />
+          <ReduceAffliction type="drinkbuff" strength="300" />
         </StatusEffect>
       </PeriodicEffect>
       <icon texture="Content/UI/CommandUIAtlas.png" sourcerect="896,896,128,128" origin="0,0"/>
     </Affliction>
-    <!-- DRUNKNESS OVERRIDE -->
+    <!-- DRUNKNESS OVERRIDE | WHILE DRUNK, COUNTER THE PASSIVE HEALING OF LIVER DAMAGE -->
     <Affliction
       identifier="drunk"
       description="The smell of alcohol rises from them like a vapor, their speech slurs a little, and their eyes fail to focus."
@@ -256,6 +251,7 @@
       </Effect>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,640,128,128" color="170,194,147,255" origin="0,0"/>
     </Affliction>
+    <!-- TRACK ALCOHOL INTAKE AFFLICTION TO CAUSE LIVER DAMAGE IF TOO MUCH ALCOHOL WAS CONSUMED IN A SHORT TIME -->
     <Affliction
       name="Track Alcohol Intake"
       identifier="trackalcoholintake"
