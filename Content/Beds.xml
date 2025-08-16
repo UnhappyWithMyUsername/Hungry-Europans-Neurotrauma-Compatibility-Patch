@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Override>
   <Items>
+    <!-- BED OVERRIDES TO REMOVE DAMAGE HEALING AND ADD TABLE AFFLICTION + HUNGRY EUROPANS ALCOHOLIC RELATED AFFLICTIONS HEALING -->
     <Item name="" identifier="opdeco_bunkbeds" width="356" height="264" texturescale="1.0,1.0" scale="0.5" category="Decorative" cargocontaineridentifier="ninjutsucrate" spritecolor="255,255,255,255">
       <Upgrade gameversion="0.12.0.0" noninteractable="false" />
       <sprite texture="Content/Map/Outposts/Art/Storage.png" sourcerect="1600,1760,384,264" depth="0.85" premultiplyalpha="false" origin="0.5,0.5" />
@@ -16,12 +17,13 @@
         <limbposition limb="LeftHand" position="224,-160" allowusinglimb="false" />
         <StatusEffect type="OnPicked" target="This" timeframe="0" setvalue="true" />
         <StatusEffect type="OnActive" target="Character">
-          <ReduceAffliction type="damage" strength="0.05" />
-          <ReduceAffliction identifier="bloodloss" strength="0.05" />
-          <ReduceAffliction identifier="bleeding" strength="0.05" />
           <ReduceAffliction identifier="nausea" strength="0.05" />
           <ReduceAffliction identifier="opiatewithdrawal" strength="0.05" />
           <ReduceAffliction identifier="opiateaddiction" strength="0.05" />
+          <ReduceAffliction identifier="chemwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="chemaddiction" strength="0.05" />
+          <ReduceAffliction identifier="he-alcoholwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="he-alcoholismaddiction" strength="0.05" />
           <ReduceAffliction identifier="drunk" strength="0.05" />
           <ReduceAffliction identifier="trackalcoholintake" strength="0.05" />
           <ReduceAffliction identifier="concussion" strength="0.02" />
@@ -67,12 +69,13 @@
         <limbposition limb="LeftHand" position="264,-290" allowusinglimb="false" />
         <StatusEffect type="OnPicked" target="This" timeframe="0" setvalue="true" />
         <StatusEffect type="OnActive" target="Character">
-          <ReduceAffliction type="damage" strength="0.05" />
-          <ReduceAffliction identifier="bloodloss" strength="0.05" />
-          <ReduceAffliction identifier="bleeding" strength="0.05" />
           <ReduceAffliction identifier="nausea" strength="0.05" />
           <ReduceAffliction identifier="opiatewithdrawal" strength="0.05" />
           <ReduceAffliction identifier="opiateaddiction" strength="0.05" />
+          <ReduceAffliction identifier="chemwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="chemaddiction" strength="0.05" />
+          <ReduceAffliction identifier="he-alcoholwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="he-alcoholismaddiction" strength="0.05" />
           <ReduceAffliction identifier="drunk" strength="0.05" />
           <ReduceAffliction identifier="trackalcoholintake" strength="0.05" />
           <ReduceAffliction identifier="concussion" strength="0.02" />
@@ -126,12 +129,13 @@
         <limbposition limb="LeftHand" position="234,-10" allowusinglimb="false" />
         <StatusEffect type="OnPicked" target="This" timeframe="0" setvalue="true" />
         <StatusEffect type="OnActive" target="Character">
-          <ReduceAffliction type="damage" strength="0.05" />
-          <ReduceAffliction identifier="bloodloss" strength="0.1" />
-          <ReduceAffliction identifier="bleeding" strength="0.1" />
           <ReduceAffliction identifier="nausea" strength="0.1" />
           <ReduceAffliction identifier="opiatewithdrawal" strength="0.1" />
           <ReduceAffliction identifier="opiateaddiction" strength="0.1" />
+          <ReduceAffliction identifier="chemwithdrawal" strength="0.1" />
+          <ReduceAffliction identifier="chemaddiction" strength="0.1" />
+          <ReduceAffliction identifier="he-alcoholwithdrawal" strength="0.1" />
+          <ReduceAffliction identifier="he-alcoholismaddiction" strength="0.1" />
           <ReduceAffliction identifier="drunk" strength="0.1" />
           <ReduceAffliction identifier="trackalcoholintake" strength="0.05" />
           <ReduceAffliction identifier="concussion" strength="0.1" />
@@ -175,12 +179,13 @@
         <limbposition limb="LeftHand" position="234,10" allowusinglimb="false" />
         <StatusEffect type="OnPicked" target="This" timeframe="0" setvalue="true" />
         <StatusEffect type="OnActive" target="Character">
-          <ReduceAffliction type="damage" strength="0.05" />
-          <ReduceAffliction identifier="bloodloss" strength="0.05" />
-          <ReduceAffliction identifier="bleeding" strength="0.05" />
           <ReduceAffliction identifier="nausea" strength="0.05" />
           <ReduceAffliction identifier="opiatewithdrawal" strength="0.05" />
           <ReduceAffliction identifier="opiateaddiction" strength="0.05" />
+          <ReduceAffliction identifier="chemwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="chemaddiction" strength="0.05" />
+          <ReduceAffliction identifier="he-alcoholwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="he-alcoholismaddiction" strength="0.05" />
           <ReduceAffliction identifier="drunk" strength="0.05" />
           <ReduceAffliction identifier="trackalcoholintake" strength="0.05" />
           <ReduceAffliction identifier="concussion" strength="0.02" />
@@ -224,12 +229,13 @@
         <limbposition limb="LeftHand" position="112,-80" allowusinglimb="false" />
         <StatusEffect type="OnPicked" target="This" timeframe="0" setvalue="true" />
         <StatusEffect type="OnActive" target="Character">
-          <ReduceAffliction type="damage" strength="0.05" />
-          <ReduceAffliction identifier="bloodloss" strength="0.05" />
-          <ReduceAffliction identifier="bleeding" strength="0.05" />
           <ReduceAffliction identifier="nausea" strength="0.05" />
           <ReduceAffliction identifier="opiatewithdrawal" strength="0.05" />
           <ReduceAffliction identifier="opiateaddiction" strength="0.05" />
+          <ReduceAffliction identifier="chemwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="chemaddiction" strength="0.05" />
+          <ReduceAffliction identifier="he-alcoholwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="he-alcoholismaddiction" strength="0.05" />
           <ReduceAffliction identifier="drunk" strength="0.05" />
           <ReduceAffliction identifier="trackalcoholintake" strength="0.05" />
           <ReduceAffliction identifier="concussion" strength="0.02" />
@@ -265,19 +271,20 @@
       <Price baseprice="200" soldbydefault="false">
         <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1" />
       </Price>
-      <Deconstruct time="40">
+      <Deconstruct time="10">
         <Item identifier="steel" />
         <Item identifier="aluminium" />
+        <Item identifier="copper" />
       </Deconstruct>
-      <Fabricate suitablefabricators="medicalfabricator" requiredtime="30">
+      <Fabricate suitablefabricators="fabricator" requiredtime="30">
         <RequiredSkill identifier="medical" level="50" />
         <RequiredItem identifier="fpgacircuit" />
         <RequiredItem identifier="plastic" />
         <RequiredItem identifier="steel" />
         <RequiredItem identifier="aluminium" />
       </Fabricate>
-      <InventoryIcon texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="96,304,416,192" origin="0.5,0.5" />
-      <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" sourcerect="96,304,416,192" depth="0.75" premultiplyalpha="false" origin="0.5,0.5" />
+      <InventoryIcon texture="%ModDir%/Images/MedBayAssets.png" sourcerect="96,304,416,192" origin="0.5,0.5" />
+      <sprite texture="%ModDir%/Images/MedBayAssets.png" sourcerect="96,304,416,192" depth="0.75" premultiplyalpha="false" origin="0.5,0.5" />
       <Holdable selectkey="Action" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetach" PickingTime="5" aimpos="85,-10" handle1="0,0" attachable="true" aimable="true">
         <StatusEffect type="OnNotContained" target="NearbyCharacters" range="200" stackable="true">
           <Affliction identifier="table" amount="2" />
@@ -288,7 +295,7 @@
         </StatusEffect>
       </Holdable>
       <LightComponent range="10.0" lightcolor="255,255,255,0" IsOn="true" castshadows="false" allowingameediting="false">
-        <sprite texture="Content/Map/Outposts/Art/MedBayAssets.png" depth="0.025" sourcerect="96,304,416,192" origin="0.5,0.5" alpha="1.0" />
+        <sprite texture="%ModDir%/Images/MedBayAssets.png" depth="0.025" sourcerect="96,304,416,192" origin="0.5,0.5" alpha="1.0" />
       </LightComponent>
       <Controller allowingameediting="false" UserPos="0,-300" direction="Right" hidehud="false" canbeselected="true">
         <limbposition limb="Head" position="-6,-10" allowusinglimb="true" />
@@ -298,28 +305,23 @@
         <limbposition limb="LeftFoot" position="380,-20" allowusinglimb="true" />
         <limbposition limb="RightHand" position="234,-10" allowusinglimb="false" />
         <limbposition limb="LeftHand" position="234,-10" allowusinglimb="false" />
-        <StatusEffect type="OnActive" target="Character">
-          <ReduceAffliction type="damage" strength="0.05" />
-          <ReduceAffliction identifier="bloodloss" strength="0.1" />
-          <ReduceAffliction identifier="bleeding" strength="0.1" />
-          <ReduceAffliction identifier="nausea" strength="0.1" />
-          <ReduceAffliction identifier="opiatewithdrawal" strength="0.1" />
-          <ReduceAffliction identifier="opiateaddiction" strength="0.1" />
-          <ReduceAffliction identifier="drunk" strength="0.1" />
-          <ReduceAffliction identifier="trackalcoholintake" strength="0.05" />
-          <ReduceAffliction identifier="concussion" strength="0.1" />
-          <Affliction identifier="table" amount="2" />
-        </StatusEffect>
-        <StatusEffect type="OnActive" target="This,Character" tags="sleeping" LowPassMultiplier="0.1" setvalue="true" interval="0.5" duration="0.51" multiplyafflictionsbymaxvitality="true">
-          <Conditional timeframe="gte 1" targetitemcomponent="GreaterComponent" />
-          <Affliction identifier="he-sleep" amount="1" />
-        </StatusEffect>
         <!--
-        <StatusEffect type="Always" target="NearbyCharacters" range="100">
-          <Conditional sym_unconsciousness="gt 0.1"/>
-          <LuaHook name="surgerytable.forceon" />
+            <StatusEffect type="Always" target="NearbyCharacters" range="100">
+                <Conditional sym_unconsciousness="gt 0.1"/>
+                <LuaHook name="surgerytable.forceon" />
+            </StatusEffect>
+            -->
+        <StatusEffect type="OnActive" target="Character">
+          <reduceaffliction identifier="nausea" strength="0.05" />
+          <reduceaffliction identifier="opiatewithdrawal" strength="0.05" />
+          <reduceaffliction identifier="opiateaddiction" strength="0.05" />
+          <ReduceAffliction identifier="chemwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="chemaddiction" strength="0.05" />
+          <ReduceAffliction identifier="he-alcoholwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="he-alcoholismaddiction" strength="0.05" />
+          <reduceaffliction identifier="drunk" strength="0.05" />
+          <reduceaffliction identifier="concussion" strength="0.02" />
         </StatusEffect>
-        -->
       </Controller>
       <GreaterComponent TimeFrame="0" canbeselected="false" canbepicked="false" allowingameediting="false" />
       <CustomInterface canbeselected="true" drawhudwhenequipped="true">
