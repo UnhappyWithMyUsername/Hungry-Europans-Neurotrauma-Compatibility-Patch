@@ -3,4 +3,7 @@
   <Afflictions file="%ModDir%/Content/Afflictions.xml" />
   <Item file="%ModDir%/Content/Beds.xml" />
   <Item file="%ModDir%/Content/Drinks.xml" />
+  <Item file="%ModDir%/Content/Food.xml" />
+  <Item file="%ModDir%/Content/Organs_Limbs.xml" />
+  <Text file="%ModDir%/Content/English.xml" />
 </contentpackage>
