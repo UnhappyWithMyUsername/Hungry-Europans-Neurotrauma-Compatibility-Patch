@@ -1,0 +1,1146 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Override>
+  <Items>
+    <!-- Overridden to add "humanarm" tag -->
+    <Item name="" identifier="rarm" description="" category="Medical" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3,monsterfood,humanarm">
+      <InventoryIcon texture="%ModDir%/Images/limbs.png" sourcerect="0,0,46,90" origin="0.5,0.5" />
+      <Sprite texture="%ModDir%/Images/limbs.png" sourcerect="0,0,46,90" depth="0.6" origin="0.5,0.5" />
+      <Body width="46" height="90" density="20" />
+      <Deconstruct time="10">
+        <Item identifier="calcium" amount="1" />
+      </Deconstruct>
+      <Price baseprice="50" soldbydefault="false"></Price>
+      <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+        <StatusEffect target="Character" type="OnSpawn">
+          <Sound file="%ModDir%/Sound/severed.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect type="OnImpact" target="This" condition="-1.0">
+          <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_red" decalsize="0.7" />
+          <ParticleEmitter particle="bloodsplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
+        </StatusEffect>
+        <!-- making the limb go kaputt if left outside of refrigeration -->
+        <StatusEffect type="Always" target="This" condition="-1.0" interval="5" disabledeltatime="true" conditionalComparison="And">
+          <Conditional hastag="neq refrigerated" targetcontainer="true" />
+          <Conditional hastag="neq medicalfabricator" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="This" condition="0.1" comparison="and">
+          <Conditional condition="gte 95" />
+          <Conditional hastag="refrigerated" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnFire" target="This" Condition="-25.0" />
+        <!-- yuck! severed limbs on the floor!
+          <StatusEffect type="OnNotContained" target="NearbyCharacters" range="300">
+            <Affliction identifier="nausea" amount="0.2"/>
+          </StatusEffect>-->
+        <StatusEffect type="OnBroken" target="This">
+          <LuaHook name="NT.RotOrgan" />
+        </StatusEffect>
+      </Throwable>
+    </Item>
+    <!-- Overridden to add "humanarm" tag -->
+    <Item name="" identifier="larm" description="" category="Medical" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3,monsterfood,humanarm">
+      <InventoryIcon texture="%ModDir%/Images/limbs.png" sourcerect="0,0,46,90" origin="0.5,0.5" />
+      <Sprite texture="%ModDir%/Images/limbs.png" sourcerect="0,0,46,90" depth="0.6" origin="0.5,0.5" />
+      <Body width="46" height="90" density="20" />
+      <Deconstruct time="10">
+        <Item identifier="calcium" amount="1" />
+      </Deconstruct>
+      <Price baseprice="50" soldbydefault="false"></Price>
+      <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+        <StatusEffect target="Character" type="OnSpawn">
+          <Sound file="%ModDir%/Sound/severed.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect type="OnImpact" target="This" condition="-1.0">
+          <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_red" decalsize="0.7" />
+          <ParticleEmitter particle="bloodsplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
+        </StatusEffect>
+        <!-- making the limb go kaputt if left outside of refrigeration -->
+        <StatusEffect type="Always" target="This" condition="-1.0" interval="5" disabledeltatime="true" conditionalComparison="And">
+          <Conditional hastag="neq refrigerated" targetcontainer="true" />
+          <Conditional hastag="neq medicalfabricator" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="This" condition="0.1" comparison="and">
+          <Conditional condition="gte 95" />
+          <Conditional hastag="refrigerated" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnFire" target="This" Condition="-25.0" />
+        <!-- yuck! severed limbs on the floor!
+          <StatusEffect type="OnNotContained" target="NearbyCharacters" range="300">
+            <Affliction identifier="nausea" amount="0.2"/>
+          </StatusEffect>-->
+        <StatusEffect type="OnBroken" target="This">
+          <LuaHook name="NT.RotOrgan" />
+        </StatusEffect>
+      </Throwable>
+    </Item>
+    <!-- Overridden to add "humanleg" tag -->
+    <Item name="" identifier="rleg" description="" category="Medical" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3,monsterfood,humanleg">
+      <InventoryIcon texture="%ModDir%/Images/limbs.png" sourcerect="57,0,60,90" origin="0.5,0.5" />
+      <Body width="60" height="90" density="20" />
+      <Sprite texture="%ModDir%/Images/limbs.png" sourcerect="57,0,60,90" depth="0.6" origin="0.5,0.5" />
+      <Deconstruct time="10">
+        <Item identifier="calcium" amount="1" />
+      </Deconstruct>
+      <Price baseprice="50" soldbydefault="false"></Price>
+      <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+        <StatusEffect target="Character" type="OnSpawn">
+          <Sound file="%ModDir%/Sound/severed.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect type="OnImpact" target="This" condition="-1.0">
+          <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_red" decalsize="0.7" />
+          <ParticleEmitter particle="bloodsplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
+        </StatusEffect>
+        <!-- making the limb go kaputt if left outside of refrigeration -->
+        <StatusEffect type="Always" target="This" condition="-1.0" interval="5" disabledeltatime="true" conditionalComparison="And">
+          <Conditional hastag="neq refrigerated" targetcontainer="true" />
+          <Conditional hastag="neq medicalfabricator" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="This" condition="0.1" comparison="and">
+          <Conditional condition="gte 95" />
+          <Conditional hastag="refrigerated" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnFire" target="This" Condition="-25.0" />
+        <!-- yuck! severed limbs on the floor!
+          <StatusEffect type="OnNotContained" target="NearbyCharacters" range="300">
+            <Affliction identifier="nausea" amount="0.2"/>
+          </StatusEffect>-->
+        <StatusEffect type="OnBroken" target="This">
+          <LuaHook name="NT.RotOrgan" />
+        </StatusEffect>
+      </Throwable>
+    </Item>
+    <!-- Overridden to add "humanleg" tag -->
+    <Item name="" identifier="lleg" description="" category="Medical" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3,monsterfood,humanleg">
+      <InventoryIcon texture="%ModDir%/Images/limbs.png" sourcerect="57,0,60,90" origin="0.5,0.5" />
+      <Sprite texture="%ModDir%/Images/limbs.png" sourcerect="57,0,60,90" depth="0.6" origin="0.5,0.5" />
+      <Body width="60" height="90" density="20" />
+      <Deconstruct time="10">
+        <Item identifier="calcium" amount="1" />
+      </Deconstruct>
+      <Price baseprice="50" soldbydefault="false"></Price>
+      <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+        <StatusEffect target="Character" type="OnSpawn">
+          <Sound file="%ModDir%/Sound/severed.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect type="OnImpact" target="This" condition="-1.0">
+          <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_red" decalsize="0.7" />
+          <ParticleEmitter particle="bloodsplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
+        </StatusEffect>
+        <!-- making the limb go kaputt if left outside of refrigeration -->
+        <StatusEffect type="Always" target="This" condition="-1.0" interval="5" disabledeltatime="true" conditionalComparison="And">
+          <Conditional hastag="neq refrigerated" targetcontainer="true" />
+          <Conditional hastag="neq medicalfabricator" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="This" condition="0.1" comparison="and">
+          <Conditional condition="gte 95" />
+          <Conditional hastag="refrigerated" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnFire" target="This" Condition="-25.0" />
+        <!-- yuck! severed limbs on the floor!
+          <StatusEffect type="OnNotContained" target="NearbyCharacters" range="300">
+            <Affliction identifier="nausea" amount="0.2"/>
+          </StatusEffect>-->
+        <StatusEffect type="OnBroken" target="This">
+          <LuaHook name="NT.RotOrgan" />
+        </StatusEffect>
+      </Throwable>
+    </Item>
+    <!-- Overridden to add "humanhead" tag -->
+    <Item name="" identifier="headta" description="" category="Medical" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3,monsterfood,humanhead">
+      <InventoryIcon texture="%ModDir%/Images/limbs.png" sourcerect="129,31,58,51" origin="0.5,0.5" />
+      <Sprite texture="%ModDir%/Images/limbs.png" sourcerect="129,31,58,51" depth="0.6" origin="0.5,0.5" />
+      <Body width="58" height="51" density="20" />
+      <Deconstruct time="10">
+        <Item identifier="calcium" amount="1" />
+      </Deconstruct>
+      <Price baseprice="50" soldbydefault="false"></Price>
+      <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+        <StatusEffect target="Character" type="OnSpawn">
+          <Sound file="%ModDir%/Sound/severed.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect type="OnImpact" target="This" condition="-1.0">
+          <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_red" decalsize="0.7" />
+          <ParticleEmitter particle="bloodsplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
+        </StatusEffect>
+        <!-- making the limb go kaputt if left outside of refrigeration -->
+        <StatusEffect type="Always" target="This" condition="-1.0" interval="5" disabledeltatime="true" conditionalComparison="And">
+          <Conditional hastag="neq refrigerated" targetcontainer="true" />
+          <Conditional hastag="neq medicalfabricator" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="This" condition="0.1" comparison="and">
+          <Conditional condition="gte 95" />
+          <Conditional hastag="refrigerated" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnFire" target="This" Condition="-25.0" />
+        <!-- yuck! severed limbs on the floor!
+          <StatusEffect type="OnNotContained" target="NearbyCharacters" range="300">
+            <Affliction identifier="nausea" amount="0.2"/>
+          </StatusEffect>-->
+        <StatusEffect type="OnBroken" target="This">
+          <LuaHook name="NT.RotOrgan" />
+        </StatusEffect>
+      </Throwable>
+    </Item>
+    <!-- Overridden to add "humanhead" tag -->
+    <Item name="" identifier="headsa" description="" category="Medical" scale="0.4" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,petfood1,petfood2,petfood3,monsterfood,humanhead">
+      <InventoryIcon texture="%ModDir%/Images/limbs.png" sourcerect="195,18,58,66" origin="0.5,0.5" />
+      <Sprite texture="%ModDir%/Images/limbs.png" sourcerect="195,18,58,66" depth="0.6" origin="0.5,0.5" />
+      <Body width="58" height="66" density="20" />
+      <Deconstruct time="10">
+        <Item identifier="calcium" amount="1" />
+      </Deconstruct>
+      <Price baseprice="50" soldbydefault="false"></Price>
+      <Throwable characterusable="true" canbecombined="true" removeoncombined="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+        <StatusEffect target="Character" type="OnSpawn">
+          <Sound file="%ModDir%/Sound/severed.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect type="OnImpact" target="This" condition="-1.0">
+          <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_red" decalsize="0.7" />
+          <ParticleEmitter particle="bloodsplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
+        </StatusEffect>
+        <!-- making the limb go kaputt if left outside of refrigeration -->
+        <StatusEffect type="Always" target="This" condition="-1.0" interval="5" disabledeltatime="true" conditionalComparison="And">
+          <Conditional hastag="neq refrigerated" targetcontainer="true" />
+          <Conditional hastag="neq medicalfabricator" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="This" condition="0.1" comparison="and">
+          <Conditional condition="gte 95" />
+          <Conditional hastag="refrigerated" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnFire" target="This" Condition="-25.0" />
+        <!-- yuck! severed limbs on the floor!
+          <StatusEffect type="OnNotContained" target="NearbyCharacters" range="300">
+            <Affliction identifier="nausea" amount="0.2"/>
+          </StatusEffect>-->
+        <StatusEffect type="OnBroken" target="This">
+          <LuaHook name="NT.RotOrgan" />
+        </StatusEffect>
+      </Throwable>
+    </Item>
+
+    <!-- Overridden to change texture and scale and change rotting conditionals to stop rotting if inside an active fabricator and make the item grillable -->
+    <Item name="" identifier="livertransplant" description="" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,liver,allowongrill,petfood1,petfood2,petfood3,monsterfood">
+      <Price baseprice="1000" soldbydefault="false">
+        <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="1" />
+      </Price>
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="0,96,47,31" depth="0.6" origin="0.5,0.5" />
+      <Body width="41" height="25" density="10" />
+      <Upgrade gameversion="2.0.0.0" scale="0.5">
+        <Body width="41" height="25" density="10" />
+      </Upgrade>
+      <Deconstruct />
+
+      <!-- Grilling -->
+      <ItemComponent canbeselected="false" canbepicked="false" allowingameediting="false">
+        <ActiveConditional HasStatusTag="eq activegrill" targetcontainer="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="1" interval="1" disabledeltatime="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="0" setvalue="true" disabledeltatime="true">
+          <Conditional HasStatusTag="neq activegrill" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" interval="1" disabledeltatime="true">
+          <Conditional MaxValueLength="gte 45" />
+          <Remove />
+          <SpawnItem identifier="he-grilledhumanliver" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+        </StatusEffect>
+      </ItemComponent>
+      <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
+      
+      <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
+          <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_red" decalsize="1.0" />
+          <ParticleEmitter particle="bloodsplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
+          <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="10" velocitymin="200" velocitymax="300" scalemin="0.4" scalemax="0.8" />
+          <Remove />
+        </StatusEffect>
+        <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
+        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="0.1" comparison="Or">
+          <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
+          <Conditional HasStatusTag="activegrill" targetcontainer="true" />
+          <Conditional HasStatusTag="activefryer" targetcontainer="true" />
+        </StatusEffect>
+        <!-- making the organ go kaputt if left outside of refrigeration -->
+        <StatusEffect type="Always" target="This" condition="-2.5" interval="5" disabledeltatime="true" conditionalComparison="And">
+          <Conditional hastag="neq refrigerated" targetcontainer="true" />
+          <Conditional HasStatusTag="neq infabricator" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="This" condition="0.1" comparison="and">
+          <Conditional condition="gte 90" />
+          <Conditional hastag="refrigerated" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnFire" target="This" Condition="-25.0" />
+        <!-- yuck! organs on the floor! -->
+        <StatusEffect type="OnNotContained" target="NearbyCharacters" range="300">
+          <Affliction identifier="nausea" amount="0.2" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <LuaHook name="NT.RotOrgan" />
+        </StatusEffect>
+      </Throwable>
+      <SkillRequirementHint identifier="medical" level="40" />
+    </Item>
+    <!-- WIP (TODO: Make grillable) | Overridden to change texture and scale and change rotting conditionals to stop rotting if inside an active fabricator -->
+    <Item name="" identifier="lungtransplant" description="" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,lung,petfood1,petfood2,petfood3,monsterfood">
+      <Price baseprice="2000" soldbydefault="false">
+        <Price locationtype="research" multiplier="1" sold="true" minavailable="2" />
+      </Price>
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="48,96,50,51" depth="0.6" origin="0.5,0.5" />
+      <Body width="44" height="45" density="10" />
+      <Upgrade gameversion="2.0.0.0" scale="0.5">
+        <Body width="44" height="45" density="10" />
+      </Upgrade>
+      <Deconstruct />
+      
+      <!-- Grilling 
+      <ItemComponent canbeselected="false" canbepicked="false" allowingameediting="false">
+        <ActiveConditional HasStatusTag="eq activegrill" targetcontainer="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="1" interval="1" disabledeltatime="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="0" setvalue="true" disabledeltatime="true">
+          <Conditional HasStatusTag="neq activegrill" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" interval="1" disabledeltatime="true">
+          <Conditional MaxValueLength="gte 45" />
+          <Remove />
+          <SpawnItem identifier="he-sausage" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+        </StatusEffect>
+      </ItemComponent>
+      <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
+      -->
+      <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
+          <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_red" decalsize="1.0" />
+          <ParticleEmitter particle="bloodsplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
+          <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="10" velocitymin="200" velocitymax="300" scalemin="0.4" scalemax="0.8" />
+          <Remove />
+        </StatusEffect>
+        <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
+        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="0.1" comparison="Or">
+          <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
+          <Conditional HasStatusTag="activegrill" targetcontainer="true" />
+          <Conditional HasStatusTag="activefryer" targetcontainer="true" />
+        </StatusEffect>
+        <!-- making the organ go kaputt if left outside of refrigeration -->
+        <StatusEffect type="Always" target="This" condition="-2.5" interval="5" disabledeltatime="true" conditionalComparison="And">
+          <Conditional hastag="neq refrigerated" targetcontainer="true" />
+          <Conditional HasStatusTag="neq infabricator" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="This" condition="0.1" comparison="and">
+          <Conditional condition="gte 90" />
+          <Conditional hastag="refrigerated" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnFire" target="This" Condition="-25.0" />
+        <!-- yuck! organs on the floor! -->
+        <StatusEffect type="OnNotContained" target="NearbyCharacters" range="300">
+          <Affliction identifier="nausea" amount="0.2" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <LuaHook name="NT.RotOrgan" />
+        </StatusEffect>
+      </Throwable>
+      <SkillRequirementHint identifier="medical" level="40" />
+    </Item>
+    <!-- Overridden to change texture and scale and change rotting conditionals to stop rotting if inside an active fabricator and make the item grillable -->
+    <Item name="" identifier="kidneytransplant" description="" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,kidney,allowongrill,petfood1,petfood2,petfood3,monsterfood">
+      <Price baseprice="400" soldbydefault="false">
+        <Price storeidentifier="merchantmedical" sold="true" multiplier="0.9" minavailable="2" />
+      </Price>
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="99,96,20,28" depth="0.6" origin="0.5,0.5" />
+      <Body radius="7" height="15" density="10" />
+      <Upgrade gameversion="2.0.0.0" scale="0.5">
+        <Body radius="7" height="15" density="10" />
+      </Upgrade>
+      <Deconstruct />
+      
+      <!-- Grilling -->
+      <ItemComponent canbeselected="false" canbepicked="false" allowingameediting="false">
+        <ActiveConditional HasStatusTag="eq activegrill" targetcontainer="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="1" interval="1" disabledeltatime="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="0" setvalue="true" disabledeltatime="true">
+          <Conditional HasStatusTag="neq activegrill" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" interval="1" disabledeltatime="true">
+          <Conditional MaxValueLength="gte 45" />
+          <Remove />
+          <SpawnItem identifier="he-grilledhumankidney" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+        </StatusEffect>
+      </ItemComponent>
+      <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
+      
+      <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
+          <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_red" decalsize="1.0" />
+          <ParticleEmitter particle="bloodsplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
+          <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="10" velocitymin="200" velocitymax="300" scalemin="0.4" scalemax="0.8" />
+          <Remove />
+        </StatusEffect>
+        <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
+        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="0.1" comparison="Or">
+          <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
+          <Conditional HasStatusTag="activegrill" targetcontainer="true" />
+          <Conditional HasStatusTag="activefryer" targetcontainer="true" />
+        </StatusEffect>
+        <!-- making the organ go kaputt if left outside of refrigeration -->
+        <StatusEffect type="Always" target="This" condition="-2.5" interval="5" disabledeltatime="true" conditionalComparison="And">
+          <Conditional hastag="neq refrigerated" targetcontainer="true" />
+          <Conditional HasStatusTag="neq infabricator" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="This" condition="0.1" comparison="and">
+          <Conditional condition="gte 90" />
+          <Conditional hastag="refrigerated" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnFire" target="This" Condition="-25.0" />
+        <!-- yuck! organs on the floor! -->
+        <StatusEffect type="OnNotContained" target="NearbyCharacters" range="300">
+          <Affliction identifier="nausea" amount="0.1" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <LuaHook name="NT.RotOrgan" />
+        </StatusEffect>
+      </Throwable>
+      <SkillRequirementHint identifier="medical" level="40" />
+    </Item>
+    <!-- Overridden to change texture and scale and change rotting conditionals to stop rotting if inside an active fabricator and make the item grillable -->
+    <Item name="" identifier="hearttransplant" description="" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,organ,heart,allowongrill,petfood1,petfood2,petfood3,monsterfood">
+      <Price baseprice="4000" soldbydefault="false">
+        <Price locationtype="research" multiplier="1" sold="true" minavailable="2" />
+      </Price>
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="120,96,18,32" depth="0.6" origin="0.5,0.5" />
+      <Body width="6" height="20" density="10" />
+      <Upgrade gameversion="2.0.0.0" scale="0.5">
+        <Body width="6" height="20" density="10" />
+      </Upgrade>
+      <Deconstruct />
+      
+      <!-- Grilling -->
+      <ItemComponent canbeselected="false" canbepicked="false" allowingameediting="false">
+        <ActiveConditional HasStatusTag="eq activegrill" targetcontainer="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="1" interval="1" disabledeltatime="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="0" setvalue="true" disabledeltatime="true">
+          <Conditional HasStatusTag="neq activegrill" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" interval="1" disabledeltatime="true">
+          <Conditional MaxValueLength="gte 45" />
+          <Remove />
+          <SpawnItem identifier="he-grilledhumanheart" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+        </StatusEffect>
+      </ItemComponent>
+      <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
+      
+      <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
+          <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_red" decalsize="1.0" />
+          <ParticleEmitter particle="bloodsplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
+          <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="10" velocitymin="200" velocitymax="300" scalemin="0.4" scalemax="0.8" />
+          <Remove />
+        </StatusEffect>
+        <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
+        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="0.1" comparison="Or">
+          <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
+          <Conditional HasStatusTag="activegrill" targetcontainer="true" />
+          <Conditional HasStatusTag="activefryer" targetcontainer="true" />
+        </StatusEffect>
+        <!-- making the organ go kaputt if left outside of refrigeration -->
+        <StatusEffect type="Always" target="This" condition="-2.5" interval="5" disabledeltatime="true" conditionalComparison="And">
+          <Conditional hastag="neq refrigerated" targetcontainer="true" />
+          <Conditional HasStatusTag="neq infabricator" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="This" condition="0.1" comparison="and">
+          <Conditional condition="gte 90" />
+          <Conditional hastag="refrigerated" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnFire" target="This" Condition="-25.0" />
+        <!-- yuck! organs on the floor! -->
+        <StatusEffect type="OnNotContained" target="NearbyCharacters" range="300">
+          <Affliction identifier="nausea" amount="0.2" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <LuaHook name="NT.RotOrgan" />
+        </StatusEffect>
+      </Throwable>
+      <SkillRequirementHint identifier="medical" level="40" />
+    </Item>
+    <!-- Overridden to change texture and scale and change rotting conditionals to stop rotting if inside an active fabricator and make the item grillable -->
+    <Item name="" identifier="braintransplant" description="" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="1.5" Tags="smallitem,organ,brain,allowongrill,petfood1,petfood2,petfood3,monsterfood,braintransplant">
+      <Price baseprice="0" soldbydefault="false">
+        <Price storeidentifier="merchantmedical" sold="false" />
+      </Price>
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="139,96,47,37" depth="0.6" origin="0.5,0.5" />
+      <Body width="26" radius="15" density="10" />
+      <Upgrade gameversion="2.0.0.0" scale="0.5">
+        <Body width="26" radius="15" density="10" />
+      </Upgrade>
+      <Deconstruct />
+      
+      <!-- Grilling -->
+      <ItemComponent canbeselected="false" canbepicked="false" allowingameediting="false">
+        <ActiveConditional HasStatusTag="eq activegrill" targetcontainer="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="1" interval="1" disabledeltatime="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="0" setvalue="true" disabledeltatime="true">
+          <Conditional HasStatusTag="neq activegrill" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" interval="1" disabledeltatime="true">
+          <Conditional MaxValueLength="gte 45" />
+          <Remove />
+          <SpawnItem identifier="he-grilledhumanbrain" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+        </StatusEffect>
+      </ItemComponent>
+      <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
+      
+      <Throwable characterusable="true" slots="Any,RightHand,LeftHand" throwforce="4.0" aimpos="35,-10" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnImpact" target="This" Condition="0.0" setvalue="true">
+          <Conditional hastag="neq braincontainer" targetcontainer="true" />
+          <Explosion range="0.0" structuredamage="0" itemdamage="0" force="0.0" severlimbsprobability="0.0" decal="fruitsplatter_red" decalsize="1.0" />
+          <ParticleEmitter particle="bloodsplash" anglemin="0" anglemax="360" particleamount="2" velocitymin="0" velocitymax="0" scalemin="1.5" scalemax="2" />
+          <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="10" velocitymin="200" velocitymax="300" scalemin="0.4" scalemax="0.8" />
+          <Remove />
+        </StatusEffect>
+        <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
+        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="0.1" comparison="Or">
+          <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
+          <Conditional HasStatusTag="activegrill" targetcontainer="true" />
+          <Conditional HasStatusTag="activefryer" targetcontainer="true" />
+        </StatusEffect>
+        <!-- making the organ go kaputt if left outside of refrigeration -->
+        <StatusEffect type="Always" target="This" condition="-2" comparison="and" conditionalComparison="And">
+          <Conditional hastag="neq refrigerated" targetcontainer="true" />
+          <Conditional hastag="neq braincontainer" targetcontainer="true" />
+          <Conditional HasStatusTag="neq infabricator" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="This" condition="-0.2" comparison="and">
+          <Conditional hastag="refrigerated" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnContained" target="This" condition="0.1" comparison="and">
+          <Conditional hastag="braincontainer" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnFire" target="This" Condition="-50.0" />
+        <!-- yuck! organs on the floor! -->
+        <StatusEffect type="OnNotContained" target="NearbyCharacters" range="300">
+          <Affliction identifier="nausea" amount="0.2" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <LuaHook name="NT.RotOrgan" />
+        </StatusEffect>
+      </Throwable>
+      <SkillRequirementHint identifier="medical" level="100" />
+    </Item>
+
+    <!-- Grilled -->
+    <Item name="Grilled Liver" identifier="he-grilledhumanliver" description="" health="10" category="Misc" scale="0.5" useinhealthinterface="False" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,grilledliver,allowongrill,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="38,60,47,31" depth="0.6" origin="0.5,0.5" />
+      <Body width="41" height="25" density="10" />
+      <Deconstruct />
+
+      <!-- Grilling -->
+      <ItemComponent canbeselected="false" canbepicked="false" allowingameediting="false">
+        <ActiveConditional HasStatusTag="eq activegrill" targetcontainer="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="1" interval="1" disabledeltatime="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="0" setvalue="true" disabledeltatime="true">
+          <Conditional HasStatusTag="neq activegrill" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" interval="1" disabledeltatime="true">
+          <Conditional MaxValueLength="gte 45" />
+          <Remove />
+          <SpawnItem identifier="he-burnedhumanliver" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+        </StatusEffect>
+      </ItemComponent>
+      <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
+      
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.2" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
+          <Affliction identifier="he-stuffed" amount="2.2" />
+          <ReduceAffliction type="hunger" amount="2.2" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="1" />
+          <ReduceAffliction identifier="nausea" amount="1" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+
+    <Item name="Grilled Kidney" identifier="he-grilledhumankidney" description="" health="6" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,grilledkidney,allowongrill,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="18,60,19,28" depth="0.6" origin="0.5,0.5" />
+      <Body radius="7" height="15" density="10" />
+      <Deconstruct />
+
+      <!-- Grilling -->
+      <ItemComponent canbeselected="false" canbepicked="false" allowingameediting="false">
+        <ActiveConditional HasStatusTag="eq activegrill" targetcontainer="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="1" interval="1" disabledeltatime="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="0" setvalue="true" disabledeltatime="true">
+          <Conditional HasStatusTag="neq activegrill" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" interval="1" disabledeltatime="true">
+          <Conditional MaxValueLength="gte 45" />
+          <Remove />
+          <SpawnItem identifier="he-burnedhumankidney" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+        </StatusEffect>
+      </ItemComponent>
+      <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
+      
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.2" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
+          <Affliction identifier="he-stuffed" amount="2.2" />
+          <ReduceAffliction type="hunger" amount="2.2" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="1" />
+          <ReduceAffliction identifier="nausea" amount="1" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+    
+    <Item name="Grilled Heart" identifier="he-grilledhumanheart" description="" health="8" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,grilledheart,allowongrill,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="0,60,17,32" depth="0.6" origin="0.5,0.5" />
+      <Body width="6" height="20" density="10" />
+      <Deconstruct />
+
+      <!-- Grilling -->
+      <ItemComponent canbeselected="false" canbepicked="false" allowingameediting="false">
+        <ActiveConditional HasStatusTag="eq activegrill" targetcontainer="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="1" interval="1" disabledeltatime="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="0" setvalue="true" disabledeltatime="true">
+          <Conditional HasStatusTag="neq activegrill" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" interval="1" disabledeltatime="true">
+          <Conditional MaxValueLength="gte 45" />
+          <Remove />
+          <SpawnItem identifier="he-burnedhumanheart" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+        </StatusEffect>
+      </ItemComponent>
+      <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
+      
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.2" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
+          <Affliction identifier="he-stuffed" amount="2.2" />
+          <ReduceAffliction type="hunger" amount="2.2" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="1" />
+          <ReduceAffliction identifier="nausea" amount="1" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+
+    <Item name="Grilled Brain" identifier="he-grilledhumanbrain" description="" health="15" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,grilledheart,allowongrill,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="86,60,47,35" depth="0.6" origin="0.5,0.5" />
+      <Body width="27" radius="14" density="10" />
+      <Deconstruct />
+
+      <!-- Grilling -->
+      <ItemComponent canbeselected="false" canbepicked="false" allowingameediting="false">
+        <ActiveConditional HasStatusTag="eq activegrill" targetcontainer="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="1" interval="1" disabledeltatime="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="0" setvalue="true" disabledeltatime="true">
+          <Conditional HasStatusTag="neq activegrill" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" interval="1" disabledeltatime="true">
+          <Conditional MaxValueLength="gte 45" />
+          <Remove />
+          <SpawnItem identifier="he-burnedhumanbrain" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+        </StatusEffect>
+      </ItemComponent>
+      <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
+      
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.2" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
+          <Affliction identifier="he-stuffed" amount="2.2" />
+          <ReduceAffliction type="hunger" amount="2.2" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="1" />
+          <ReduceAffliction identifier="nausea" amount="1" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+
+    <!-- Roasted -->
+    <Item name="Roasted Liver" identifier="he-roastedhumanliver" description="" health="10" category="Misc" scale="0.5" useinhealthinterface="False" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,roastedliver,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="38,60,47,31" depth="0.6" origin="0.5,0.5" />
+      <Body width="41" height="25" density="10" />
+      <Deconstruct />
+      <Fabricate suitablefabricators="stove" requiredtime="40" requiresrecipe="false" amount="1" >
+        <RequiredSkill identifier="cooking" level="50" />
+        <RequiredItem tag="liver" amount="1" mincondition="0.0" maxcondition="1.0" usecondition="false" />
+        <RequiredItem identifier="he-salt" usecondition="true" mincondition="0.1" />
+        <RequiredItem identifier="he-cookingoil" usecondition="true" mincondition="0.1" />
+        <RequiredItem tag="pan" UseCondition="True" MinCondition="0.0" />
+      </Fabricate>
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.2" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
+          <Affliction identifier="he-stuffed" amount="2.2" />
+          <ReduceAffliction type="hunger" amount="2.2" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="1" />
+          <ReduceAffliction identifier="nausea" amount="1" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+
+    <Item name="Roasted Kidney" identifier="he-roastedhumankidney" description="" health="6" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,roastedkidney,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="18,60,19,28" depth="0.6" origin="0.5,0.5" />
+      <Body radius="7" height="15" density="10" />
+      <Deconstruct />
+      <Fabricate suitablefabricators="stove" requiredtime="30" requiresrecipe="false" amount="1" >
+        <RequiredSkill identifier="cooking" level="50" />
+        <RequiredItem tag="kidney" amount="1" mincondition="0.0" maxcondition="1.0" usecondition="false" />
+        <RequiredItem identifier="he-salt" usecondition="true" mincondition="0.05" />
+        <RequiredItem identifier="he-cookingoil" usecondition="true" mincondition="0.05" />
+        <RequiredItem tag="pan" UseCondition="True" MinCondition="0.0" />
+      </Fabricate>
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.2" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
+          <Affliction identifier="he-stuffed" amount="2.2" />
+          <ReduceAffliction type="hunger" amount="2.2" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="1" />
+          <ReduceAffliction identifier="nausea" amount="1" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+    
+    <Item name="Roasted Heart" identifier="he-roastedhumanheart" description="" health="8" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,roastedheart,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="0,60,17,32" depth="0.6" origin="0.5,0.5" />
+      <Body width="6" height="20" density="10" />
+      <Deconstruct />
+      <Fabricate suitablefabricators="stove" requiredtime="35" requiresrecipe="false" amount="1" >
+        <RequiredSkill identifier="cooking" level="50" />
+        <RequiredItem tag="heart" amount="1" mincondition="0.0" maxcondition="1.0" usecondition="false" />
+        <RequiredItem identifier="he-salt" usecondition="true" mincondition="0.05" />
+        <RequiredItem identifier="he-cookingoil" usecondition="true" mincondition="0.05" />
+        <RequiredItem tag="pan" UseCondition="True" MinCondition="0.0" />
+      </Fabricate>
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.2" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
+          <Affliction identifier="he-stuffed" amount="2.2" />
+          <ReduceAffliction type="hunger" amount="2.2" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="1" />
+          <ReduceAffliction identifier="nausea" amount="1" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+
+    <Item name="Roasted Brain" identifier="he-roastedhumanbrain" description="" health="15" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,roastedheart,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="86,60,47,35" depth="0.6" origin="0.5,0.5" />
+      <Body width="27" radius="14" density="10" />
+      <Deconstruct />
+      <Fabricate suitablefabricators="stove" requiredtime="60" requiresrecipe="false" amount="1" >
+        <RequiredSkill identifier="cooking" level="50" />
+        <RequiredItem tag="brain" amount="1" mincondition="0.0" maxcondition="1.0" usecondition="false" />
+        <RequiredItem identifier="he-salt" usecondition="true" mincondition="0.2" />
+        <RequiredItem identifier="he-cookingoil" usecondition="true" mincondition="0.2" />
+        <RequiredItem tag="pan" UseCondition="True" MinCondition="0.0" />
+      </Fabricate>
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.2" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
+          <Affliction identifier="he-stuffed" amount="2.2" />
+          <ReduceAffliction type="hunger" amount="2.2" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="1" />
+          <ReduceAffliction identifier="nausea" amount="1" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+
+    <!-- Boiled -->
+    <Item name="Boiled Liver" identifier="he-boiledhumanliver" description="" health="10" category="Misc" scale="0.5" useinhealthinterface="False" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,boiledliver,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="38,60,47,31" depth="0.6" origin="0.5,0.5" />
+      <Body width="41" height="25" density="10" />
+      <Deconstruct />
+      <Fabricate suitablefabricators="stove" requiredtime="40" requiresrecipe="false" amount="1" >
+        <RequiredSkill identifier="cooking" level="50" />
+        <RequiredItem tag="liver" amount="1" mincondition="0.0" maxcondition="1.0" usecondition="false" />
+        <RequiredItem identifier="he-salt" usecondition="true" mincondition="0.05" />
+        <RequiredItem tag="waterpot" UseCondition="True" MinCondition="0.2"/>
+      </Fabricate>
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.2" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
+          <Affliction identifier="he-stuffed" amount="2.2" />
+          <ReduceAffliction type="hunger" amount="2.2" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="1" />
+          <ReduceAffliction identifier="nausea" amount="1" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+
+    <Item name="Boiled Kidney" identifier="he-boiledhumankidney" description="" health="6" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,boiledkidney,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="18,60,19,28" depth="0.6" origin="0.5,0.5" />
+      <Body radius="7" height="15" density="10" />
+      <Deconstruct />
+      <Fabricate suitablefabricators="stove" requiredtime="30" requiresrecipe="false" amount="1" >
+        <RequiredSkill identifier="cooking" level="50" />
+        <RequiredItem tag="kidney" amount="1" mincondition="0.0" maxcondition="1.0" usecondition="false" />
+        <RequiredItem identifier="he-salt" usecondition="true" mincondition="0.1" />
+        <RequiredItem tag="waterpot" UseCondition="True" MinCondition="0.2"/>
+      </Fabricate>
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.2" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
+          <Affliction identifier="he-stuffed" amount="2.2" />
+          <ReduceAffliction type="hunger" amount="2.2" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="1" />
+          <ReduceAffliction identifier="nausea" amount="1" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+    
+    <Item name="Boiled Heart" identifier="he-boiledhumanheart" description="" health="8" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,boiledheart,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="0,60,17,32" depth="0.6" origin="0.5,0.5" />
+      <Body width="6" height="20" density="10" />
+      <Deconstruct />
+      <Fabricate suitablefabricators="stove" requiredtime="35" requiresrecipe="false" amount="1" >
+        <RequiredSkill identifier="cooking" level="50" />
+        <RequiredItem tag="heart" amount="1" mincondition="0.0" maxcondition="1.0" usecondition="false" />
+        <RequiredItem identifier="he-salt" usecondition="true" mincondition="0.1" />
+        <RequiredItem tag="waterpot" UseCondition="True" MinCondition="0.2"/>
+      </Fabricate>
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.2" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
+          <Affliction identifier="he-stuffed" amount="2.2" />
+          <ReduceAffliction type="hunger" amount="2.2" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="1" />
+          <ReduceAffliction identifier="nausea" amount="1" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+
+    <Item name="Boiled Brain" identifier="he-boiledhumanbrain" description="" health="15" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,boiledbrain,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="86,60,47,35" depth="0.6" origin="0.5,0.5" />
+      <Body width="27" radius="14" density="10" />
+      <Deconstruct />
+      <Fabricate suitablefabricators="stove" requiredtime="60" requiresrecipe="false" amount="1" >
+        <RequiredSkill identifier="cooking" level="50" />
+        <RequiredItem tag="brain" amount="1" mincondition="0.0" maxcondition="1.0" usecondition="false" />
+        <RequiredItem identifier="he-salt" usecondition="true" mincondition="0.1" />
+        <RequiredItem tag="waterpot" UseCondition="True" MinCondition="0.999"/>
+      </Fabricate>
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.2" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
+          <Affliction identifier="he-stuffed" amount="2.2" />
+          <ReduceAffliction type="hunger" amount="2.2" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="1" />
+          <ReduceAffliction identifier="nausea" amount="1" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+
+    <!-- Burned -->
+    <Item name="Burned Liver" identifier="he-burnedhumanliver" description="" health="10" category="Misc" scale="0.5" SpriteColor="100,100,100,255" InventoryIconColor="100,100,100,255" useinhealthinterface="False" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,burnedliver,allowongrill,burnedfood,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="38,60,47,31" depth="0.6" origin="0.5,0.5" />
+      <Body width="41" height="25" density="10" />
+      <Deconstruct />
+
+      <!-- Grilling -->
+      <ItemComponent canbeselected="false" canbepicked="false" allowingameediting="false">
+        <ActiveConditional HasStatusTag="eq activegrill" targetcontainer="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="1" interval="1" disabledeltatime="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="0" setvalue="true" disabledeltatime="true">
+          <Conditional HasStatusTag="neq activegrill" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" interval="1" disabledeltatime="true">
+          <Conditional MaxValueLength="gte 12" />
+          <Remove />
+          <Fire size="1" />
+        </StatusEffect>
+      </ItemComponent>
+      <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
+      
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.02" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="0.15" />
+          <Affliction identifier="he-stuffed" amount="0.22" />
+          <ReduceAffliction type="hunger" amount="0.22" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="0.1" />
+          <ReduceAffliction identifier="nausea" amount="0.1" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And">
+          <Conditional InWater="false" />
+          <Conditional thirst="gt 0" />
+          <Affliction identifier="thirst" amount="0.5" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+
+    <Item name="Burned Kidney" identifier="he-burnedhumankidney" description="" health="6" category="Medical" scale="0.5" SpriteColor="100,100,100,255" InventoryIconColor="100,100,100,255" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,burnedkidney,allowongrill,burnedfood,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="18,60,19,28" depth="0.6" origin="0.5,0.5" />
+      <Body radius="7" height="15" density="10" />
+      <Deconstruct />
+
+      <!-- Grilling -->
+      <ItemComponent canbeselected="false" canbepicked="false" allowingameediting="false">
+        <ActiveConditional HasStatusTag="eq activegrill" targetcontainer="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="1" interval="1" disabledeltatime="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="0" setvalue="true" disabledeltatime="true">
+          <Conditional HasStatusTag="neq activegrill" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" interval="1" disabledeltatime="true">
+          <Conditional MaxValueLength="gte 12" />
+          <Remove />
+          <Fire size="1" />
+        </StatusEffect>
+      </ItemComponent>
+      <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
+      
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.02" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="0.15" />
+          <Affliction identifier="he-stuffed" amount="0.22" />
+          <ReduceAffliction type="hunger" amount="0.22" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="0.1" />
+          <ReduceAffliction identifier="nausea" amount="0.1" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And">
+          <Conditional InWater="false" />
+          <Conditional thirst="gt 0" />
+          <Affliction identifier="thirst" amount="0.5" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+    
+    <Item name="Burned Heart" identifier="he-burnedhumanheart" description="" health="8" category="Medical" scale="0.5" SpriteColor="100,100,100,255" InventoryIconColor="100,100,100,255" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,burnedheart,allowongrill,burnedfood,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="0,60,17,32" depth="0.6" origin="0.5,0.5" />
+      <Body width="6" height="20" density="10" />
+      <Deconstruct />
+
+      <!-- Grilling -->
+      <ItemComponent canbeselected="false" canbepicked="false" allowingameediting="false">
+        <ActiveConditional HasStatusTag="eq activegrill" targetcontainer="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="1" interval="1" disabledeltatime="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="0" setvalue="true" disabledeltatime="true">
+          <Conditional HasStatusTag="neq activegrill" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" interval="1" disabledeltatime="true">
+          <Conditional MaxValueLength="gte 12" />
+          <Remove />
+          <Fire size="1" />
+        </StatusEffect>
+      </ItemComponent>
+      <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
+      
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.02" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="0.15" />
+          <Affliction identifier="he-stuffed" amount="0.22" />
+          <ReduceAffliction type="hunger" amount="0.22" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="0.1" />
+          <ReduceAffliction identifier="nausea" amount="0.1" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And">
+          <Conditional InWater="false" />
+          <Conditional thirst="gt 0" />
+          <Affliction identifier="thirst" amount="0.5" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+
+    <Item name="Burned Brain" identifier="he-burnedhumanbrain" description="" health="15" category="Medical" scale="0.5" SpriteColor="100,100,100,255" InventoryIconColor="100,100,100,255" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,burnedbrain,allowongrill,burnedfood,petfood1,petfood2,petfood3,monsterfood">
+      <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="86,60,47,35" depth="0.6" origin="0.5,0.5" />
+      <Body width="27" radius="14" density="10" />
+      <Deconstruct />
+
+      <!-- Grilling -->
+      <ItemComponent canbeselected="false" canbepicked="false" allowingameediting="false">
+        <ActiveConditional HasStatusTag="eq activegrill" targetcontainer="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="1" interval="1" disabledeltatime="true" />
+        <StatusEffect type="OnActive" target="This" MaxValueLength="0" setvalue="true" disabledeltatime="true">
+          <Conditional HasStatusTag="neq activegrill" targetcontainer="true" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This" interval="1" disabledeltatime="true">
+          <Conditional MaxValueLength="gte 12" />
+          <Remove />
+          <Fire size="1" />
+        </StatusEffect>
+      </ItemComponent>
+      <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
+      
+      <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+          <Conditional InWater="false" />
+          <Affliction identifier="he-cannibalism" amount="0.02" />
+          <ReduceAffliction identifier="he-hungryforhumanmeat" amount="0.15" />
+          <Affliction identifier="he-stuffed" amount="0.22" />
+          <ReduceAffliction type="hunger" amount="0.22" />
+          <Affliction identifier="spill" amount="1000" probability="0.0005" />
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+          <Conditional InWater="false" />
+          <Conditional he-cannibalism="gte 20" />
+          <ReduceAffliction identifier="psychosis" amount="0.1" />
+          <ReduceAffliction identifier="nausea" amount="0.1" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Character" comparison="And">
+          <Conditional InWater="false" />
+          <Conditional thirst="gt 0" />
+          <Affliction identifier="thirst" amount="0.5" />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+  </Items>
+</Override>
