@@ -293,5 +293,44 @@
       </Effect>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,768,128,128" color="195,136,60,255" origin="0,0"/>
     </Affliction>
+    <!-- ADRENALINE OVERRIDE TO ADD BACK THE ABILITY TO ALWAYS STAY CONSCIOUS WHILE ADRENALINE IS ACTIVE SINCE NT REMOVED IT BUT HUNGRY EUROPANS RELIES ON THAT MECHANIC -->
+    <Affliction identifier="adrenalinerush" type="adrenaline" isbuff="true" limbspecific="false" maxstrength="15" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+      <Description textidentifier="afflictiondescription.adrenalinerush.self" target="Self" />
+      <Description textidentifier="afflictiondescription.adrenalinerush" target="OtherCharacter " />
+      <Effect minstrength="0" maxstrength="15" strengthchange="-1" resistancefor="stun" minresistance="0" maxresistance="0.5">
+        <StatusEffect target="Character" interval="15" disabledeltatime="true">
+          <ReduceAffliction type="stun" amount="30" />
+        </StatusEffect>
+        <StatusEffect target="Character">
+          <Conditional vitality="lte 10" />
+          <Affliction identifier="temphealth" amount="10" />
+        </StatusEffect>
+        <StatusEffect target="Character">
+          <TriggerAnimation Type="Walk" filename="VigorousWalk" priority="4" ExpectedSpecies="Human" />
+        </StatusEffect>
+        <AbilityFlag flagtype="AlwaysStayConscious" />
+      </Effect>
+      <Icon texture="Content/UI/TalentsIcons4.png" sourcerect="768,256,128,128" color="10,193,114,255" origin="0,0" />
+    </Affliction>
+    <!-- SECOND ADRENALINE RUSH AFFLICTION TO MAKE THE PLAYER RESISTANT TO SYM_UNCONSCIOUSNESS AFFLICTION | APPLIED BY ADRENALINE -->
+    <Affliction identifier="adrenalinerush2"
+     type="adrenaline"
+     isbuff="true"
+     limbspecific="false"
+     maxstrength="15"
+     showiconthreshold="1000"
+     showicontoothersthreshold="1000"
+     showinhealthscannerthreshold="1000"
+     iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+      <Description textidentifier="afflictiondescription.adrenalinerush.self" target="Self" />
+      <Description textidentifier="afflictiondescription.adrenalinerush" target="OtherCharacter " />
+      <Effect minstrength="0" maxstrength="15" strengthchange="-1" resistancefor="sym_unconsciousness" minresistance="1" maxresistance="1" />
+      <Icon texture="Content/UI/TalentsIcons4.png" sourcerect="768,256,128,128" color="10,193,114,255" origin="0,0" />
+    </Affliction>
+    <!-- TEMPORARY BANDAID FIX FOR NOT GETTING UP WITH LOW VITALITY IN NT | TEMPORARY HEALTH AFFLICTION TO KEEP CHARACTER ABOVE CRITICAL VITALITY WHILE UNDER ADRENALINE RUSH SINCE NT SOMEHOW BREAKS "AlwaysStayConscious" -->
+    <Affliction identifier="temphealth" type="none" limbspecific="false" maxstrength="100" showiconthreshold="1000" showicontoothersthreshold="1000" showinhealthscannerthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
+      <Effect minstrength="0" maxstrength="10" strengthchange="-1" resistancefor="stun" minresistance="0" maxresistance="0.5" minvitalitydecrease="-0" maxvitalitydecrease="-95" />
+      <Icon texture="Content/UI/TalentsIcons4.png" sourcerect="768,256,128,128" color="10,193,114,255" origin="0,0" />
+    </Affliction>
   </Afflictions>
 </Override>
