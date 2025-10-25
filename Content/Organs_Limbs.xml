@@ -524,7 +524,7 @@
     </Item>
 
     <!-- Grilled -->
-    <Item name="Grilled Liver" identifier="he-grilledhumanliver" description="" health="10" category="Misc" scale="0.5" useinhealthinterface="False" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,grilledliver,allowongrill,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Grilled Liver" identifier="he-grilledhumanliver" description="" health="10" category="Misc" scale="0.5" useinhealthinterface="False" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,grilledliver,allowongrill,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="38,60,47,31" depth="0.6" origin="0.5,0.5" />
       <Body width="41" height="25" density="10" />
       <Deconstruct />
@@ -545,10 +545,10 @@
       <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
       
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.2" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
@@ -557,16 +557,19 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="1" />
           <ReduceAffliction identifier="nausea" amount="1" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
 
-    <Item name="Grilled Kidney" identifier="he-grilledhumankidney" description="" health="6" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,grilledkidney,allowongrill,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Grilled Kidney" identifier="he-grilledhumankidney" description="" health="6" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,grilledkidney,allowongrill,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="18,60,19,28" depth="0.6" origin="0.5,0.5" />
       <Body radius="7" height="15" density="10" />
       <Deconstruct />
@@ -587,10 +590,10 @@
       <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
       
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.2" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
@@ -599,16 +602,19 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="1" />
           <ReduceAffliction identifier="nausea" amount="1" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
     
-    <Item name="Grilled Heart" identifier="he-grilledhumanheart" description="" health="8" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,grilledheart,allowongrill,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Grilled Heart" identifier="he-grilledhumanheart" description="" health="8" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,grilledheart,allowongrill,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="0,60,17,32" depth="0.6" origin="0.5,0.5" />
       <Body width="6" height="20" density="10" />
       <Deconstruct />
@@ -629,10 +635,10 @@
       <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
       
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.2" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
@@ -641,16 +647,19 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="1" />
           <ReduceAffliction identifier="nausea" amount="1" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
 
-    <Item name="Grilled Brain" identifier="he-grilledhumanbrain" description="" health="15" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,grilledheart,allowongrill,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Grilled Brain" identifier="he-grilledhumanbrain" description="" health="15" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,grilledheart,allowongrill,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="86,60,47,35" depth="0.6" origin="0.5,0.5" />
       <Body width="27" radius="14" density="10" />
       <Deconstruct />
@@ -671,10 +680,10 @@
       <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
       
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.2" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
@@ -683,17 +692,20 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="1" />
           <ReduceAffliction identifier="nausea" amount="1" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
 
     <!-- Roasted -->
-    <Item name="Roasted Liver" identifier="he-roastedhumanliver" description="" health="10" category="Misc" scale="0.5" useinhealthinterface="False" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,roastedliver,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Roasted Liver" identifier="he-roastedhumanliver" description="" health="10" category="Misc" scale="0.5" useinhealthinterface="False" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,roastedliver,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="38,60,47,31" depth="0.6" origin="0.5,0.5" />
       <Body width="41" height="25" density="10" />
       <Deconstruct />
@@ -705,10 +717,10 @@
         <RequiredItem tag="pan" UseCondition="True" MinCondition="0.0" />
       </Fabricate>
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.2" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
@@ -717,16 +729,19 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="1" />
           <ReduceAffliction identifier="nausea" amount="1" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
 
-    <Item name="Roasted Kidney" identifier="he-roastedhumankidney" description="" health="6" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,roastedkidney,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Roasted Kidney" identifier="he-roastedhumankidney" description="" health="6" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,roastedkidney,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="18,60,19,28" depth="0.6" origin="0.5,0.5" />
       <Body radius="7" height="15" density="10" />
       <Deconstruct />
@@ -738,10 +753,10 @@
         <RequiredItem tag="pan" UseCondition="True" MinCondition="0.0" />
       </Fabricate>
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.2" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
@@ -750,16 +765,19 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="1" />
           <ReduceAffliction identifier="nausea" amount="1" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
     
-    <Item name="Roasted Heart" identifier="he-roastedhumanheart" description="" health="8" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,roastedheart,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Roasted Heart" identifier="he-roastedhumanheart" description="" health="8" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,roastedheart,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="0,60,17,32" depth="0.6" origin="0.5,0.5" />
       <Body width="6" height="20" density="10" />
       <Deconstruct />
@@ -771,10 +789,10 @@
         <RequiredItem tag="pan" UseCondition="True" MinCondition="0.0" />
       </Fabricate>
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.2" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
@@ -783,16 +801,19 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="1" />
           <ReduceAffliction identifier="nausea" amount="1" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
 
-    <Item name="Roasted Brain" identifier="he-roastedhumanbrain" description="" health="15" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,roastedheart,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Roasted Brain" identifier="he-roastedhumanbrain" description="" health="15" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,roastedheart,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="86,60,47,35" depth="0.6" origin="0.5,0.5" />
       <Body width="27" radius="14" density="10" />
       <Deconstruct />
@@ -804,10 +825,10 @@
         <RequiredItem tag="pan" UseCondition="True" MinCondition="0.0" />
       </Fabricate>
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.2" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
@@ -816,17 +837,20 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="1" />
           <ReduceAffliction identifier="nausea" amount="1" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
 
     <!-- Boiled -->
-    <Item name="Boiled Liver" identifier="he-boiledhumanliver" description="" health="10" category="Misc" scale="0.5" useinhealthinterface="False" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,boiledliver,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Boiled Liver" identifier="he-boiledhumanliver" description="" health="10" category="Misc" scale="0.5" useinhealthinterface="False" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,boiledliver,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="38,60,47,31" depth="0.6" origin="0.5,0.5" />
       <Body width="41" height="25" density="10" />
       <Deconstruct />
@@ -837,10 +861,10 @@
         <RequiredItem tag="waterpot" UseCondition="True" MinCondition="0.2"/>
       </Fabricate>
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.2" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
@@ -849,16 +873,19 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="1" />
           <ReduceAffliction identifier="nausea" amount="1" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
 
-    <Item name="Boiled Kidney" identifier="he-boiledhumankidney" description="" health="6" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,boiledkidney,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Boiled Kidney" identifier="he-boiledhumankidney" description="" health="6" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,boiledkidney,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="18,60,19,28" depth="0.6" origin="0.5,0.5" />
       <Body radius="7" height="15" density="10" />
       <Deconstruct />
@@ -869,10 +896,10 @@
         <RequiredItem tag="waterpot" UseCondition="True" MinCondition="0.2"/>
       </Fabricate>
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.2" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
@@ -881,16 +908,19 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="1" />
           <ReduceAffliction identifier="nausea" amount="1" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
     
-    <Item name="Boiled Heart" identifier="he-boiledhumanheart" description="" health="8" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,boiledheart,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Boiled Heart" identifier="he-boiledhumanheart" description="" health="8" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,boiledheart,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="0,60,17,32" depth="0.6" origin="0.5,0.5" />
       <Body width="6" height="20" density="10" />
       <Deconstruct />
@@ -901,10 +931,10 @@
         <RequiredItem tag="waterpot" UseCondition="True" MinCondition="0.2"/>
       </Fabricate>
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.2" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
@@ -913,16 +943,19 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="1" />
           <ReduceAffliction identifier="nausea" amount="1" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
 
-    <Item name="Boiled Brain" identifier="he-boiledhumanbrain" description="" health="15" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,boiledbrain,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Boiled Brain" identifier="he-boiledhumanbrain" description="" health="15" category="Medical" scale="0.5" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,boiledbrain,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="86,60,47,35" depth="0.6" origin="0.5,0.5" />
       <Body width="27" radius="14" density="10" />
       <Deconstruct />
@@ -933,10 +966,10 @@
         <RequiredItem tag="waterpot" UseCondition="True" MinCondition="0.999"/>
       </Fabricate>
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.2" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="1.5" />
@@ -945,17 +978,20 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="1" />
           <ReduceAffliction identifier="nausea" amount="1" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
 
     <!-- Burned -->
-    <Item name="Burned Liver" identifier="he-burnedhumanliver" description="" health="10" category="Misc" scale="0.5" SpriteColor="100,100,100,255" InventoryIconColor="100,100,100,255" useinhealthinterface="False" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,burnedliver,allowongrill,burnedfood,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Burned Liver" identifier="he-burnedhumanliver" description="" health="10" category="Misc" scale="0.5" SpriteColor="100,100,100,255" InventoryIconColor="100,100,100,255" useinhealthinterface="False" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,burnedliver,allowongrill,burnedfood,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="38,60,47,31" depth="0.6" origin="0.5,0.5" />
       <Body width="41" height="25" density="10" />
       <Deconstruct />
@@ -976,10 +1012,10 @@
       <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
       
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.02" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="0.15" />
@@ -988,7 +1024,7 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="0.1" />
@@ -999,10 +1035,13 @@
           <Conditional thirst="gt 0" />
           <Affliction identifier="thirst" amount="0.5" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
 
-    <Item name="Burned Kidney" identifier="he-burnedhumankidney" description="" health="6" category="Medical" scale="0.5" SpriteColor="100,100,100,255" InventoryIconColor="100,100,100,255" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,burnedkidney,allowongrill,burnedfood,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Burned Kidney" identifier="he-burnedhumankidney" description="" health="6" category="Medical" scale="0.5" SpriteColor="100,100,100,255" InventoryIconColor="100,100,100,255" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,burnedkidney,allowongrill,burnedfood,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="18,60,19,28" depth="0.6" origin="0.5,0.5" />
       <Body radius="7" height="15" density="10" />
       <Deconstruct />
@@ -1023,10 +1062,10 @@
       <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
       
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.02" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="0.15" />
@@ -1035,7 +1074,7 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="0.1" />
@@ -1046,10 +1085,13 @@
           <Conditional thirst="gt 0" />
           <Affliction identifier="thirst" amount="0.5" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
     
-    <Item name="Burned Heart" identifier="he-burnedhumanheart" description="" health="8" category="Medical" scale="0.5" SpriteColor="100,100,100,255" InventoryIconColor="100,100,100,255" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,burnedheart,allowongrill,burnedfood,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Burned Heart" identifier="he-burnedhumanheart" description="" health="8" category="Medical" scale="0.5" SpriteColor="100,100,100,255" InventoryIconColor="100,100,100,255" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,burnedheart,allowongrill,burnedfood,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="0,60,17,32" depth="0.6" origin="0.5,0.5" />
       <Body width="6" height="20" density="10" />
       <Deconstruct />
@@ -1070,10 +1112,10 @@
       <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
       
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.02" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="0.15" />
@@ -1082,7 +1124,7 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="0.1" />
@@ -1093,10 +1135,13 @@
           <Conditional thirst="gt 0" />
           <Affliction identifier="thirst" amount="0.5" />
         </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
+        </StatusEffect>
       </Holdable>
     </Item>
 
-    <Item name="Burned Brain" identifier="he-burnedhumanbrain" description="" health="15" category="Medical" scale="0.5" SpriteColor="100,100,100,255" InventoryIconColor="100,100,100,255" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,burnedbrain,allowongrill,burnedfood,petfood1,petfood2,petfood3,monsterfood">
+    <Item name="Burned Brain" identifier="he-burnedhumanbrain" description="" health="15" category="Medical" scale="0.5" SpriteColor="100,100,100,255" InventoryIconColor="100,100,100,255" useinhealthinterface="True" impactsoundtag="impact_soft" cargocontaineridentifier="organcrate" impacttolerance="5.5" Tags="smallitem,fooditem,burnedbrain,allowongrill,burnedfood,petfood1,petfood2,petfood3,monsterfood" requireaimtouse="true" isshootable="true">
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="86,60,47,35" depth="0.6" origin="0.5,0.5" />
       <Body width="27" radius="14" density="10" />
       <Deconstruct />
@@ -1117,10 +1162,10 @@
       <MemoryComponent canbepicked="false" canbeselected="false" allowingameediting="false" drawhudwhenequipped="false" string="" MaxValueLength="0" />
       
       <Holdable DisableWhenRangedWeaponEquipped="true" canbepicked="true" canBeCombined="false" removeOnCombined="false" slots="Any,RightHand,LeftHand" aimpos="25,14" holdangle="270" holdpos="20,30" handle1="10,-10" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
-        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="This" Condition="-1.0" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" disabledeltatime="true" stackable="false" comparison="And">
+        <StatusEffect type="OnUse" target="Character" disabledeltatime="false" stackable="false" comparison="And">
           <Conditional InWater="false" />
           <Affliction identifier="he-cannibalism" amount="0.02" />
           <ReduceAffliction identifier="he-hungryforhumanmeat" amount="0.15" />
@@ -1129,7 +1174,7 @@
           <Affliction identifier="spill" amount="1000" probability="0.0005" />
           <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Food/EatingSoft.ogg" loop="True" range="200" volume="5.0" />
         </StatusEffect>
-        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="true" stackable="false">
+        <StatusEffect type="OnUse" target="Character" comparison="And" disabledeltatime="false" stackable="false">
           <Conditional InWater="false" />
           <Conditional he-cannibalism="gte 20" />
           <ReduceAffliction identifier="psychosis" amount="0.1" />
@@ -1139,6 +1184,9 @@
           <Conditional InWater="false" />
           <Conditional thirst="gt 0" />
           <Affliction identifier="thirst" amount="0.5" />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This" disabledeltatime="true">
+          <Remove />
         </StatusEffect>
       </Holdable>
     </Item>
