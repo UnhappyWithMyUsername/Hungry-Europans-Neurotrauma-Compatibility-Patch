@@ -1,6 +1,91 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Override>
   <Items>
+    <!-- TODO: Rework applied afflictions for better NT compatibility -->
+    <Item name="Glass Fragments" identifier="he-glassfragments" category="Misc" subcategory="Ingredients" maxstacksize="20" cargocontaineridentifier="metalcrate" description="Shattered glass. Can be obtained through smashing bottles or crafting them from quartz at a fabricator. Used for crafting at a fabricator or bottle printer." Tags="smallitem,ingredient,glassfragments" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_glassfragments" isshootable="true" requireaimtouse="true">
+      <PreferredContainer secondary="wreckmedcab,abandonedmedcab" amount="1" spawnprobability="0.01" />
+      <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
+      <PreferredContainer primary="bottleprinter" secondary="kitchen,locker"/>
+      <Sprite texture="%ModDir:2954998725%/Content/Items/Food/DrinksAndIngredients.png" sourcerect="291,1,62,14" depth="0.6" origin="0.5,0.5" />
+      <ContainedSprite allowedcontainertags="table" texture="%ModDir:2954998725%/Content/Items/Food/DrinksAndIngredients.png" sourcerect="291,1,62,14" depth="0.525" origin="0.5,0.3"  />
+      <Body width="62" height="7" density="13" />
+      <Fabricate suitablefabricators="fabricator" requiredtime="2" requiresrecipe="false" amount="8">
+        <RequiredSkill identifier="mechanical" level="30" />
+        <RequiredItem identifier="quartz" amount="1"/>
+      </Fabricate>
+      <Deconstruct time="0.5" requireddeconstructor="deconstructor"/>
+      <Deconstruct time="1" chooserandom="false" requireddeconstructor="bottleprinter">
+        <Item identifier="he-emptybottle" requiredotheritem="he-blueprintbottle" outcondition="1.0" activatebuttontext="bottleprinter.print" infotext="bottleprinter.infotext.bottle.regular" infotextonotheritemmissing="bottleprinter.missingitem.blueprint" />
+        <Item identifier="he-emptybottlebeer" requiredotheritem="he-blueprintbottlebeer" outcondition="1.0" activatebuttontext="bottleprinter.print" infotext="bottleprinter.infotext.bottle.beer" infotextonotheritemmissing="bottleprinter.missingitem.blueprint" />
+        <Item identifier="he-emptybottlerum" requiredotheritem="he-blueprintbottlerum" outcondition="1.0" activatebuttontext="bottleprinter.print" infotext="bottleprinter.infotext.bottle.rum" infotextonotheritemmissing="bottleprinter.missingitem.blueprint" />
+        <Item identifier="he-emptybottlewhiskey" requiredotheritem="he-blueprintbottlewhiskey" outcondition="1.0" activatebuttontext="bottleprinter.print" infotext="bottleprinter.infotext.bottle.whiskey" infotextonotheritemmissing="bottleprinter.missingitem.blueprint" />
+        <Item identifier="he-emptybottlehalucinova" requiredotheritem="he-blueprintbottlehalucinova" outcondition="1.0" activatebuttontext="bottleprinter.print" infotext="bottleprinter.infotext.bottle.halucinova" infotextonotheritemmissing="bottleprinter.missingitem.blueprint" />
+        <Item identifier="he-emptyjar" requiredotheritem="he-blueprintjar" outcondition="1.0" activatebuttontext="bottleprinter.print" infotext="bottleprinter.infotext.jar" infotextonotheritemmissing="bottleprinter.missingitem" />
+        <Item identifier="he-emptyshaker" amount="2" requiredotheritem="he-blueprintshaker" outcondition="1.0" activatebuttontext="bottleprinter.print" infotext="bottleprinter.infotext.shaker" infotextonotheritemmissing="bottleprinter.missingitem" />
+        <Item identifier="he-emptycup" amount="2" requiredotheritem="he-blueprintcup" outcondition="1.0" activatebuttontext="bottleprinter.print" infotext="bottleprinter.infotext.cup" infotextonotheritemmissing="bottleprinter.missingitem" />
+      </Deconstruct>
+      <Holdable canbepicked="true" characterusable="true" canBeCombined="true" slots="Any,RightHand,LeftHand" aimpos="28,18" holdangle="0" holdpos="36,-20" aimangle="0" aimable="false" swingwhenaiming="true" swingamount="10,6" swingspeed="0.2" msg="ItemMsgPickUpSelect">
+        <StatusEffect type="OnUse" target="Character" interval="1">
+          <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Drinks/Swallow1.ogg" volume="8.0" range="500" loop="false" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Limb" targetlimb="Torso" interval="1" disabledeltatime="true" multiplyafflictionsbymaxvitality="true">
+          <Affliction identifier="foreignbody" amount="25" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="Limb" targetlimb="Torso" duration="180" interval="1" checkconditionalalways="true">
+          <Conditional foreignbody="gt 0" />
+          <Affliction identifier="internalbleeding" amount="0.55" />
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="This" interval="1">
+          <Remove />
+        </StatusEffect>
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+      </Holdable>
+    </Item>
+    <!-- Adrenaline override to fix it from not waking up unconscious players (NT removed all effects from Meleeweapon and doesn't seem to account for sym_unconsciousness affliction) -->
+    <Item name="" identifier="adrenaline" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
+      <Upgrade gameversion="0.10.0.0" scale="0.5" />
+      <PreferredContainer primary="medfabcab" secondary="medcontainer" />
+      <PreferredContainer secondary="abandonedmedcab,wreckmedcab" minamount="1" maxamount="2" spawnprobability="0.5" />
+      <Price baseprice="60">
+        <Price storeidentifier="merchantoutpost" sold="false" multiplier="1.25" />
+        <Price storeidentifier="merchantcity" sold="false" multiplier="1.25" />
+        <Price storeidentifier="merchantresearch" multiplier="0.9" minavailable="4" />
+        <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="2" />
+        <Price storeidentifier="merchantmine" sold="false" multiplier="1.1" />
+        <Price storeidentifier="merchantmedical" multiplier="0.9" minavailable="4" />
+      </Price>
+      <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="129,448,62,64" origin="0.5,0.5" />
+      <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="301,209,37,72" depth="0.6" origin="0.5,0.5" />
+      <Body width="25" height="55" density="10.2" waterdragcoefficient="1" />
+      <SuitableTreatment identifier="cardiacarrest" suitability="100" />
+      <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
+        <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
+        <StatusEffect type="OnSuccess" target="UseTarget">
+          <Conditional entitytype="eq Character"/>
+          <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
+        </StatusEffect>
+        <StatusEffect type="OnImpact" target="UseTarget" multiplyafflictionsbymaxvitality="true" AllowWhenBroken="true">
+          <Affliction identifier="stun" amount="0.1" />
+        </StatusEffect>
+        <StatusEffect type="OnSuccess" target="UseTarget" disabledeltatime="true" allowwhenbroken="true">
+          <Affliction identifier="adrenalinerush" amount="20" />
+          <Affliction identifier="adrenalinerush2" amount="20" />
+          <ReduceAffliction identifier="sym_unconsciousness" amount="1000" />
+        </StatusEffect>
+        <StatusEffect statuseffecttags="medical" type="OnSuccess" delay="8" target="UseTarget" duration="10.0">
+          <Affliction identifier="nausea" amount="4.0" />
+          <Affliction identifier="organdamage" amount="0.25" />
+        </StatusEffect>
+        <!-- Remove the item when fully used -->
+        <StatusEffect type="OnBroken" target="This">
+          <Remove />
+        </StatusEffect>
+      </MeleeWeapon>
+      <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="false" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
+    </Item>
+
     <!-- MEALS -->
     <!-- overridden to add new recipe with NT limbs -->
     <Item hideinmenus="false" name="Plate of Human Limbs" identifier="he-cookedhumanlimbs" variantof="he-poisoneffectpreset_fork" health="18" category="Misc" subcategory="Food - Human" maxstacksize="1" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" description="" Tags="smallitem,fooditem,forkfood,foodplate,petfood1,petfood2,petfood3" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_bottle_glass" isshootable="True" requireaimtouse="True">
