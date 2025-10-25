@@ -322,6 +322,10 @@
           <reduceaffliction identifier="drunk" strength="0.05" />
           <reduceaffliction identifier="concussion" strength="0.02" />
         </StatusEffect>
+        <StatusEffect type="OnActive" target="This,Character" tags="sleeping" LowPassMultiplier="0.1" setvalue="true" interval="0.5" duration="0.51" multiplyafflictionsbymaxvitality="true">
+          <Conditional timeframe="gte 1" targetitemcomponent="GreaterComponent" />
+          <Affliction identifier="he-sleep" amount="1" />
+        </StatusEffect>
       </Controller>
       <GreaterComponent TimeFrame="0" canbeselected="false" canbepicked="false" allowingameediting="false" />
       <CustomInterface canbeselected="true" drawhudwhenequipped="true">
