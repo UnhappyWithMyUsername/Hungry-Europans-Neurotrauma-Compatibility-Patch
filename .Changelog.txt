@@ -1,0 +1,5 @@
+
+- Made glass fragments more NT friendly by applying foreign body and internal bleeding when consumed instead of vanilla organ damage
+- Fixed cooked/roasted/burned organs not being properly edible
+- Fixed surgery table not allowing you to sleep
+- Fixed adrenaline not getting you back on your feet | NT disables this somehow so for now it just applies more health to your character to combat this until I figure out a proper solution
