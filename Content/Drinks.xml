@@ -262,6 +262,20 @@
           </StatusEffect>
         </Button>
       </CustomInterface>
+      <!-- Inventory to fill a glass with drag and drop -->
+      <ItemContainer canbeselected="true" capacity="1" maxstacksize="1" hideitems="true" drawinventory="false" showcontainedstateindicator="false" allowdraganddrop="true">
+        <Containable items="emptyglass">
+          <StatusEffect type="OnInserted" target="Contained" disabledeltatime="true" stackable="false" duration="0.5">
+            <Remove />
+          </StatusEffect>
+          <!-- "open" the bottle when inserting a glass -->
+          <StatusEffect type="OnInserted" target="This" holdpos="30,-15" holdangle="0" aimpos="26,26" aimangle="120" settags="opened" disabledeltatime="true" setvalue="true" stackable="false" oneshot="true" />
+          <StatusEffect type="OnInserted" target="This" condition="-3.67" disabledeltatime="true">
+            <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Misc/WaterSplash.ogg" volume="1.2" range="300" />
+            <SpawnItem identifier="he-glassofrum" spawnposition="SameInventory" spawnifcantbecontained="true" spawnifinventoryfull="true" />
+          </StatusEffect>
+        </Containable>
+      </ItemContainer>
     </Rum>
 
     <Rum name="Pirate Rum" identifier="he-rum" category="Misc" subcategory="Drinks" maxstacksize="1" cargocontaineridentifier="he-liquorcrate" description="A very strong rum enriched with uranium for extra spice. |Alcoholic Beverage |Decrease Psychosis |Decrease Hallucinations |Decrease Husk Infection (If below 90%) |Healing Properties |Increase Psychosis Resistance |Increase Radiation Sickness (Slightly)" Tags="smallitem,drinkitem,alcoholitem,bottle" scale="0.5" impactsoundtag="impact_bottle_glass" impacttolerance="5.5" useinhealthinterface="true" requireaimtouse="true" isshootable="True" health="11" >
@@ -377,6 +391,20 @@
           </StatusEffect>
         </Button>
       </CustomInterface>
+      <!-- Inventory to fill a glass with drag and drop -->
+      <ItemContainer canbeselected="true" capacity="1" maxstacksize="1" hideitems="true" drawinventory="false" showcontainedstateindicator="false" allowdraganddrop="true">
+        <Containable items="emptyglass">
+          <StatusEffect type="OnInserted" target="Contained" disabledeltatime="true" stackable="false" duration="0.5">
+            <Remove />
+          </StatusEffect>
+          <!-- "open" the bottle when inserting a glass -->
+          <StatusEffect type="OnInserted" target="This" holdpos="30,-15" holdangle="0" aimpos="26,26" aimangle="120" settags="opened" disabledeltatime="true" setvalue="true" stackable="false" oneshot="true" />
+          <StatusEffect type="OnInserted" target="This" condition="-3.67" disabledeltatime="true">
+            <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Misc/WaterSplash.ogg" volume="1.2" range="300" />
+            <SpawnItem identifier="he-glassofpiraterum" spawnposition="SameInventory" spawnifcantbecontained="true" spawnifinventoryfull="true" />
+          </StatusEffect>
+        </Containable>
+      </ItemContainer>
     </Rum>
     
     <Item name="Doc's Whiskey" identifier="he-whiskey" category="Misc" subcategory="Drinks" maxstacksize="1" cargocontaineridentifier="he-liquorcrate" description="Doctor Michael's original whiskey. Approved by Doctors europa-wide. |Alcoholic Beverage |Reduce Hallucinations |Reduce Halucinova Effects |Reduce Chem Addiction |Increase Psychosis Resistance |Slight Healing Properties" Tags="smallitem,drinkitem,alcoholitem,bottle" scale="0.5" impactsoundtag="impact_bottle_glass" impacttolerance="5.5" useinhealthinterface="false" requireaimtouse="true" isshootable="True" health="11" >
@@ -476,6 +504,20 @@
           </StatusEffect>
         </Button>
       </CustomInterface>
+      <!-- Inventory to fill a glass with drag and drop -->
+      <ItemContainer canbeselected="true" capacity="1" maxstacksize="1" hideitems="true" drawinventory="false" showcontainedstateindicator="false" allowdraganddrop="true">
+        <Containable items="emptyglass">
+          <StatusEffect type="OnInserted" target="Contained" disabledeltatime="true" stackable="false" duration="0.5">
+            <Remove />
+          </StatusEffect>
+          <!-- "open" the bottle when inserting a glass -->
+          <StatusEffect type="OnInserted" target="This" holdpos="30,-15" holdangle="0" aimpos="25,25" aimangle="120" settags="opened" disabledeltatime="true" setvalue="true" stackable="false" oneshot="true" />
+          <StatusEffect type="OnInserted" target="This" condition="-3.67" disabledeltatime="true">
+            <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Misc/WaterSplash.ogg" volume="1.2" range="300" />
+            <SpawnItem identifier="he-glassofwhiskey" spawnposition="SameInventory" spawnifcantbecontained="true" spawnifinventoryfull="true" />
+          </StatusEffect>
+        </Containable>
+      </ItemContainer>
     </Item>
     
     <Item name="Halucinova" identifier="he-halucinova" category="Misc" subcategory="Drinks" maxstacksize="1" cargocontaineridentifier="he-liquorcrate" description="Keep away from &quot;Sadashi Kira&quot; at all cost! |Alcoholic Beverage |Increase Hallucinations | Slight Healing Properties" Tags="smallitem,drinkitem,alcoholitem,bottle" scale="0.5" impactsoundtag="impact_bottle_glass" impacttolerance="5.5" useinhealthinterface="false" requireaimtouse="true" isshootable="True" health="11" >
@@ -579,6 +621,20 @@
           </StatusEffect>
         </Button>
       </CustomInterface>
+      <!-- Inventory to fill a glass with drag and drop -->
+      <ItemContainer canbeselected="true" capacity="1" maxstacksize="1" hideitems="true" drawinventory="false" showcontainedstateindicator="false" allowdraganddrop="true">
+        <Containable items="emptyglass">
+          <StatusEffect type="OnInserted" target="Contained" disabledeltatime="true" stackable="false" duration="0.5">
+            <Remove />
+          </StatusEffect>
+          <!-- "open" the bottle when inserting a glass -->
+          <StatusEffect type="OnInserted" target="This" holdpos="30,-15" holdangle="0" aimpos="25,25" aimangle="120" settags="opened" disabledeltatime="true" setvalue="true" stackable="false" oneshot="true" />
+          <StatusEffect type="OnInserted" target="This" condition="-3.67" disabledeltatime="true">
+            <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Misc/WaterSplash.ogg" volume="1.2" range="300" />
+            <SpawnItem identifier="he-glassofhalucinova" spawnposition="SameInventory" spawnifcantbecontained="true" spawnifinventoryfull="true" />
+          </StatusEffect>
+        </Containable>
+      </ItemContainer>
     </Item>
 
     <!--BEERS-->
@@ -675,6 +731,20 @@
           </StatusEffect>
         </Button>
       </CustomInterface>
+      <!-- Inventory to fill a glass with drag and drop -->
+      <ItemContainer canbeselected="true" capacity="1" maxstacksize="1" hideitems="true" drawinventory="false" showcontainedstateindicator="false" allowdraganddrop="true">
+        <Containable items="emptyglass">
+          <StatusEffect type="OnInserted" target="Contained" disabledeltatime="true" stackable="false" duration="0.5">
+            <Remove />
+          </StatusEffect>
+          <!-- "open" the bottle when inserting a glass -->
+          <StatusEffect type="OnInserted" target="This" holdpos="30,-15" holdangle="0" aimpos="25,24" aimangle="120" settags="opened" disabledeltatime="true" setvalue="true" stackable="false" oneshot="true" />
+          <StatusEffect type="OnInserted" target="This" condition="-3.67" disabledeltatime="true">
+            <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Misc/WaterSplash.ogg" volume="1.2" range="300" />
+            <SpawnItem identifier="he-glassofcoalitionpremiumbeer" spawnposition="SameInventory" spawnifcantbecontained="true" spawnifinventoryfull="true" />
+          </StatusEffect>
+        </Containable>
+      </ItemContainer>
     </Item>
     
     <Item name="Jovian Force" identifier="he-beerjovianforce" category="Misc" subcategory="Drinks" maxstacksize="1" cargocontaineridentifier="he-liquorcrate" description="A beer most popular amongst the Separatists. |Alcoholic Beverage |Increase Psychosis Resistance" Tags="smallitem,drinkitem,alcoholitem,bottle" scale="0.5" impactsoundtag="impact_bottle_glass" impacttolerance="5.5" useinhealthinterface="false" requireaimtouse="true" isshootable="True" health="11" >
@@ -770,6 +840,20 @@
           </StatusEffect>
         </Button>
       </CustomInterface>
+      <!-- Inventory to fill a glass with drag and drop -->
+      <ItemContainer canbeselected="true" capacity="1" maxstacksize="1" hideitems="true" drawinventory="false" showcontainedstateindicator="false" allowdraganddrop="true">
+        <Containable items="emptyglass">
+          <StatusEffect type="OnInserted" target="Contained" disabledeltatime="true" stackable="false" duration="0.5">
+            <Remove />
+          </StatusEffect>
+          <!-- "open" the bottle when inserting a glass -->
+          <StatusEffect type="OnInserted" target="This" holdpos="30,-15" holdangle="0" aimpos="25,24" aimangle="120" settags="opened" disabledeltatime="true" setvalue="true" stackable="false" oneshot="true" />
+          <StatusEffect type="OnInserted" target="This" condition="-3.67" disabledeltatime="true">
+            <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Misc/WaterSplash.ogg" volume="1.2" range="300" />
+            <SpawnItem identifier="he-glassofjovianforcebeer" spawnposition="SameInventory" spawnifcantbecontained="true" spawnifinventoryfull="true" />
+          </StatusEffect>
+        </Containable>
+      </ItemContainer>
     </Item>
 
     <Item name="Liquid Ascension" identifier="he-beerliquidascension" category="Misc" subcategory="Drinks" maxstacksize="1" cargocontaineridentifier="he-liquorcrate" description="A popular beer amongst members of the church of husk on their way to ascension! |Alcoholic Beverage |Increase Psychosis Resistance |Increase Pressure Immunity |Oxygen Not Included |May contain traces of husk parasites" Tags="smallitem,drinkitem,alcoholitem,bottle" scale="0.5" impactsoundtag="impact_bottle_glass" impacttolerance="5.5" useinhealthinterface="false" requireaimtouse="true" isshootable="True" health="11" >
@@ -870,6 +954,20 @@
           </StatusEffect>
         </Button>
       </CustomInterface>
+      <!-- Inventory to fill a glass with drag and drop -->
+      <ItemContainer canbeselected="true" capacity="1" maxstacksize="1" hideitems="true" drawinventory="false" showcontainedstateindicator="false" allowdraganddrop="true">
+        <Containable items="emptyglass">
+          <StatusEffect type="OnInserted" target="Contained" disabledeltatime="true" stackable="false" duration="0.5">
+            <Remove />
+          </StatusEffect>
+          <!-- "open" the bottle when inserting a glass -->
+          <StatusEffect type="OnInserted" target="This" holdpos="30,-15" holdangle="0" aimpos="25,24" aimangle="120" settags="opened" disabledeltatime="true" setvalue="true" stackable="false" oneshot="true" />
+          <StatusEffect type="OnInserted" target="This" condition="-3.67" disabledeltatime="true">
+            <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Misc/WaterSplash.ogg" volume="1.2" range="300" />
+            <SpawnItem identifier="he-glassofliquidascensionbeer" spawnposition="SameInventory" spawnifcantbecontained="true" spawnifinventoryfull="true" />
+          </StatusEffect>
+        </Containable>
+      </ItemContainer>
     </Item>
 
     <Item name="Clown Juice" identifier="he-beerclownjuice" category="Misc" subcategory="Drinks" maxstacksize="1" cargocontaineridentifier="he-liquorcrate" description="A popular beer amongst pranksters. Praise the honkmother! |Alcoholic Beverage |Increase Psychosis Resistance" Tags="smallitem,drinkitem,alcoholitem,bottle" scale="0.5" impactsoundtag="impact_bottle_glass" impacttolerance="5.5" useinhealthinterface="false" requireaimtouse="true" isshootable="True" health="11" >
@@ -969,6 +1067,20 @@
           </StatusEffect>
         </Button>
       </CustomInterface>
+      <!-- Inventory to fill a glass with drag and drop -->
+      <ItemContainer canbeselected="true" capacity="1" maxstacksize="1" hideitems="true" drawinventory="false" showcontainedstateindicator="false" allowdraganddrop="true">
+        <Containable items="emptyglass">
+          <StatusEffect type="OnInserted" target="Contained" disabledeltatime="true" stackable="false" duration="0.5">
+            <Remove />
+          </StatusEffect>
+          <!-- "open" the bottle when inserting a glass -->
+          <StatusEffect type="OnInserted" target="This" holdpos="30,-15" holdangle="0" aimpos="25,24" aimangle="120" settags="opened" disabledeltatime="true" setvalue="true" stackable="false" oneshot="true" />
+          <StatusEffect type="OnInserted" target="This" condition="-3.67" disabledeltatime="true">
+            <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Misc/WaterSplash.ogg" volume="1.2" range="300" />
+            <SpawnItem identifier="he-glassofclownjuicebeer" spawnposition="SameInventory" spawnifcantbecontained="true" spawnifinventoryfull="true" />
+          </StatusEffect>
+        </Containable>
+      </ItemContainer>
     </Item>
 
     <Item name="Reaper's Tribute" identifier="he-beerreaperstribute" category="Misc" subcategory="Drinks" maxstacksize="1" cargocontaineridentifier="he-liquorcrate" description="A strong beer to pay tribute to the reaper. |Alcoholic Beverage |Clear Reaper's Tax |Clears your mind of embarrassment |Increase Psychosis Resistance" Tags="smallitem,drinkitem,alcoholitem,bottle" scale="0.5" impactsoundtag="impact_bottle_glass" impacttolerance="5.5" useinhealthinterface="false" requireaimtouse="true" isshootable="True" health="11" >
@@ -1065,6 +1177,20 @@
           </StatusEffect>
         </Button>
       </CustomInterface>
+      <!-- Inventory to fill a glass with drag and drop -->
+      <ItemContainer canbeselected="true" capacity="1" maxstacksize="1" hideitems="true" drawinventory="false" showcontainedstateindicator="false" allowdraganddrop="true">
+        <Containable items="emptyglass">
+          <StatusEffect type="OnInserted" target="Contained" disabledeltatime="true" stackable="false" duration="0.5">
+            <Remove />
+          </StatusEffect>
+          <!-- "open" the bottle when inserting a glass -->
+          <StatusEffect type="OnInserted" target="This" holdpos="30,-15" holdangle="0" aimpos="25,24" aimangle="120" settags="opened" disabledeltatime="true" setvalue="true" stackable="false" oneshot="true" />
+          <StatusEffect type="OnInserted" target="This" condition="-3.67" disabledeltatime="true">
+            <Sound file="%ModDir:2954998725%/Content/Sounds/Items/Misc/WaterSplash.ogg" volume="1.2" range="300" />
+            <SpawnItem identifier="he-glassofreaperstributebeer" spawnposition="SameInventory" spawnifcantbecontained="true" spawnifinventoryfull="true" />
+          </StatusEffect>
+        </Containable>
+      </ItemContainer>
     </Item>
 
     <Item name="Fishtail Cocktail" identifier="he-fishtailcocktail" category="Misc" subcategory="Drinks" maxstacksize="1" cargocontaineridentifier="metalcrate" description="Prevents you from getting thirsty for a longer period of time." Tags="smallitem,drinkitem" scale="0.5" impactsoundtag="impact_soft" impacttolerance="5.5" useinhealthinterface="false" requireaimtouse="true" isshootable="True" health="11" >
@@ -1187,8 +1313,8 @@
           <Conditional InWater="True" />
         </StatusEffect>
         <StatusEffect type="OnBroken" target="This">
-          <RemoveItem />
-          <SpawnItem identifier="he-emptyglass" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Remove />
+          <SpawnItem identifier="he-emptyglass" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" condition="0.99" Equip="true" />
         </StatusEffect>
       </ItemComponent>
     </Item>
@@ -1258,8 +1384,8 @@
           <Conditional InWater="True" />
         </StatusEffect>
         <StatusEffect type="OnBroken" target="This">
-          <RemoveItem />
-          <SpawnItem identifier="he-emptyglass" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" />
+          <Remove />
+          <SpawnItem identifier="he-emptyglass" spawnposition="SameInventory" spawnifcantbecontained="true" SpawnIfInventoryFull="true" condition="0.99" Equip="true" />
         </StatusEffect>
       </ItemComponent>
     </Item>
