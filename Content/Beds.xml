@@ -398,6 +398,23 @@
             <ReduceAffliction identifier="deliriuminepoisoning" amount="1.6" />
             <Affliction identifier="sepsis" amount="1" probability="0.001" />
         </StatusEffect>
+
+        <!-- Hungry Europans content -->
+        <StatusEffect type="OnActive" target="Character">
+          <reduceaffliction identifier="nausea" strength="0.05" />
+          <reduceaffliction identifier="opiatewithdrawal" strength="0.05" />
+          <reduceaffliction identifier="opiateaddiction" strength="0.05" />
+          <ReduceAffliction identifier="chemwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="chemaddiction" strength="0.05" />
+          <ReduceAffliction identifier="he-alcoholwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="he-alcoholism" strength="0.05" />
+          <reduceaffliction identifier="drunk" strength="0.05" />
+          <reduceaffliction identifier="concussion" strength="0.02" />
+        </StatusEffect>
+        <StatusEffect type="OnActive" target="This,Character" tags="sleeping" LowPassMultiplier="0.1" setvalue="true" interval="0.5" duration="0.51" multiplyafflictionsbymaxvitality="true">
+          <Conditional timeframe="gte 1" targetitemcomponent="GreaterComponent" />
+          <Affliction identifier="he-sleep" amount="1" />
+        </StatusEffect>
       </Controller>
 
     <ItemContainer canbeselected="true" selectkey="Attack" capacity="0" maxstacksize="0" hideitems="true" hidehud="false" msg="itemmsgmodifytable" uilabel="operatingtabellabel">
@@ -406,19 +423,19 @@
         <!-- Subcontainers to prepare for future sprite changes - Lukako -->
         <!-- First Slot (Tanks) -->
         <SubContainer capacity="1">
-            <SlotIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="357,450,32,62" origin="0.5,0.5" />
+            <SlotIcon texture="%ModDir:3190189044%/Images/InventoryItemIconAtlas.png" sourcerect="357,450,32,62" origin="0.5,0.5" />
             <Containable items="analgesictank,weldingfuel" itempos="102, -57" rotation="270" /> <!-- Put analgesic tank on the surgerytable sprite. -->
         </SubContainer>
         
         <!-- Second Slot (Filters) -->
         <SubContainer capacity="1">
-            <SlotIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="468,457,44,55" origin="0.5,0.5" />
+            <SlotIcon texture="%ModDir:3190189044%/Images/InventoryItemIconAtlas.png" sourcerect="468,457,44,55" origin="0.5,0.5" />
             <Containable items="dialyzer,toxfilter" itempos="23, -63" rotation="-270" /> <!-- Put the filters on the surgerytable sprite --> 
         </SubContainer>
         
         <!-- Third Slot (Organ Storage) -->
         <SubContainer capacity="1">
-            <SlotIcon texture="%ModDir%/Images/InventoryItemIconAtlas.png" sourcerect="386,451,82,61" origin="0.5,0.5" />
+            <SlotIcon texture="%ModDir:3190189044%/Images/InventoryItemIconAtlas.png" sourcerect="386,451,82,61" origin="0.5,0.5" />
             <Containable items="organcrate" itempos="115, -27" /> <!-- Slot container in the back -->
         </SubContainer>
     </ItemContainer>
@@ -443,7 +460,7 @@
         <output name="causeofdeath_out" displayname="connection.causeofdeathout" />
         <output name="bloodph_out" displayname="connection.bloodphout" />
       </ConnectionPanel>
-            <Holdable selectkey="Action" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetach" PickingTime="5" aimpos="85,-10" handle1="0,0" attachable="true" aimable="true">
+      <Holdable selectkey="Action" pickkey="Use" slots="RightHand+LeftHand" msg="ItemMsgDetach" PickingTime="5" aimpos="85,-10" handle1="0,0" attachable="true" aimable="true">
         <!-- Artificial Ventilation and Table afflictions -->
         <StatusEffect type="OnNotContained" target="NearbyCharacters" range="200" stackable="true">
           <Affliction identifier="table" amount="2" />
@@ -454,27 +471,12 @@
           <LuaHook name="surgerytable.update" />
         </StatusEffect>
         <!-- Hide contained items to prevent sprites glitching -->
-            <StatusEffect type="OnUse" target="this" hideitems="false" setvalue="true"/> <!-- If placed, show items -->
-            <StatusEffect type="OnContained" target="this" hideitems="true" setvalue="true"/> <!-- If contained (player inventory, storage etc.) hide items.-->
+        <StatusEffect type="OnUse" target="this" hideitems="false" setvalue="true"/> <!-- If placed, show items -->
+        <StatusEffect type="OnContained" target="this" hideitems="true" setvalue="true"/> <!-- If contained (player inventory, storage etc.) hide items.-->
       </Holdable>
       <LightComponent range="10.0" lightcolor="255,255,255,0" IsOn="true" castshadows="false" allowingameediting="false">
         <sprite texture="%ModDir:3190189044%/Images/MedBayAssets.png" depth="0.025" sourcerect="96,304,416,192" origin="0.5,0.5" alpha="1.0" />
       </LightComponent>
-        <StatusEffect type="OnActive" target="Character">
-          <reduceaffliction identifier="nausea" strength="0.05" />
-          <reduceaffliction identifier="opiatewithdrawal" strength="0.05" />
-          <reduceaffliction identifier="opiateaddiction" strength="0.05" />
-          <ReduceAffliction identifier="chemwithdrawal" strength="0.05" />
-          <ReduceAffliction identifier="chemaddiction" strength="0.05" />
-          <ReduceAffliction identifier="he-alcoholwithdrawal" strength="0.05" />
-          <ReduceAffliction identifier="he-alcoholism" strength="0.05" />
-          <reduceaffliction identifier="drunk" strength="0.05" />
-          <reduceaffliction identifier="concussion" strength="0.02" />
-        </StatusEffect>
-        <StatusEffect type="OnActive" target="This,Character" tags="sleeping" LowPassMultiplier="0.1" setvalue="true" interval="0.5" duration="0.51" multiplyafflictionsbymaxvitality="true">
-          <Conditional timeframe="gte 1" targetitemcomponent="GreaterComponent" />
-          <Affliction identifier="he-sleep" amount="1" />
-        </StatusEffect>
       <GreaterComponent TimeFrame="0" canbeselected="false" canbepicked="false" allowingameediting="false" />
       <CustomInterface canbeselected="true" drawhudwhenequipped="true">
         <GuiFrame style="ItemUI" absoluteoffset="0,0" anchor="BottomCenter" relativesize="0.12,0.08"/>
