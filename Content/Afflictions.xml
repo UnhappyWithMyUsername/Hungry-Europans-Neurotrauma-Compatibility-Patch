@@ -150,6 +150,10 @@
           <ReduceAffliction identifier="he-alcoholwithdrawal" strength="1" probability="0.25" />
           <ReduceAffliction identifier="embarrassment" strength="0.5" />
         </StatusEffect>
+        <StatusEffect target="Character" multiplyafflictionsbymaxvitality="true" disabledeltatime="true" comparison="and">
+          <Conditional ishuman="true" analgesia="lte 5"/>
+          <Affliction identifier="analgesia" amount="1"/>
+        </StatusEffect>
         <StatusEffect target="Character" interval="1" disabledeltatime="true">
           <Conditional mood="gt 1" />
           <ReduceAffliction identifier="mood" strength="0.3" />
@@ -191,6 +195,10 @@
           <Affliction identifier="liverdamage" amount="0.01" /><!--prevent liver damage from healing-->
           <ReduceAffliction identifier="he-alcoholwithdrawal" strength="2" probability="0.5" />
           <ReduceAffliction identifier="embarrassment" strength="1" />
+        </StatusEffect>
+        <StatusEffect target="Character" multiplyafflictionsbymaxvitality="true" disabledeltatime="true" comparison="and">
+          <Conditional ishuman="true" analgesia="lte 5"/>
+          <Affliction identifier="analgesia" amount="1"/>
         </StatusEffect>
         <StatusEffect target="Character" interval="1" disabledeltatime="true">
           <Conditional mood="gt 1" />
@@ -240,6 +248,10 @@
           <Affliction identifier="liverdamage" amount="0.01" /><!--prevent liver damage from healing-->
           <ReduceAffliction identifier="he-alcoholwithdrawal" strength="2" probability="1" />
           <ReduceAffliction identifier="embarrassment" strength="2" />
+        </StatusEffect>
+        <StatusEffect target="Character" multiplyafflictionsbymaxvitality="true" disabledeltatime="true" comparison="and">
+          <Conditional ishuman="true" analgesia="lte 5"/>
+          <Affliction identifier="analgesia" amount="1"/>
         </StatusEffect>
         <StatusEffect target="Character" interval="1" disabledeltatime="true">
           <Conditional mood="gt 1" />
