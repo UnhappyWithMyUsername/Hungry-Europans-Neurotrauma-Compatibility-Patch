@@ -243,31 +243,31 @@
           <TriggerAnimation Type="Run" filename="DrunkenRun" priority="6" ExpectedSpecies="Human" />
         </StatusEffect>
       </Effect>
-              <!-- disorient -->
+      <!-- disorient -->
       <PeriodicEffect minstrength="20" maxstrength="40" mininterval="45" maxinterval="90" >
         <StatusEffect target="Character" duration="2" comparison="And">
-          <Conditional he-alcoholism="lt 25" />
+          <Conditional alcoholaddiction="lt 25" />
           <Conditional InWater="false" />
           <Affliction identifier="he-drunkinvertcontrols" strength="100" />
         </StatusEffect>
       </PeriodicEffect>
       <PeriodicEffect minstrength="40" maxstrength="60" mininterval="35" maxinterval="70" >
         <StatusEffect target="Character" duration="2" comparison="And">
-          <Conditional he-alcoholism="lt 50" />
+          <Conditional alcoholaddiction="lt 50" />
           <Conditional InWater="false" />
           <Affliction identifier="he-drunkinvertcontrols" strength="100" />
         </StatusEffect>
       </PeriodicEffect>
       <PeriodicEffect minstrength="60" maxstrength="80" mininterval="25" maxinterval="50" >
         <StatusEffect target="Character" duration="2" comparison="And">
-          <Conditional he-alcoholism="lt 50" />
+          <Conditional alcoholaddiction="lt 50" />
           <Conditional InWater="false" />
           <Affliction identifier="he-drunkinvertcontrols" strength="100" />
         </StatusEffect>
       </PeriodicEffect>
       <PeriodicEffect minstrength="80" maxstrength="100" mininterval="15" maxinterval="30" >
         <StatusEffect target="Character" duration="2" comparison="And">
-          <Conditional he-alcoholism="lt 75" />
+          <Conditional alcoholaddiction="lt 75" />
           <Conditional InWater="false" />
           <Affliction identifier="he-drunkinvertcontrols" strength="100" />
         </StatusEffect>
