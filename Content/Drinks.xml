@@ -1748,7 +1748,7 @@
     </Item>
 
     <!-- ADDITIONAL DRINKS -->
-    <Item name="Glass of Smooth-Brain Juice" identifier="he-smoothbrainjuiceglass" category="Misc" subcategory="Drinks" maxstacksize="1" cargocontaineridentifier="he-liquorcrate" description="A glass of fresh water." Tags="smallitem,drinkitem,cleanwater,water,glass,fullglass,allowinfryer" scale="0.5" impactsoundtag="impact_bottle_glass" impacttolerance="5.5" useinhealthinterface="false" requireaimtouse="true" isshootable="True" health="4" >
+    <Item name="Glass of Smooth-Brain Juice" identifier="he-smoothbrainjuiceglass" category="Misc" subcategory="Drinks" maxstacksize="1" cargocontaineridentifier="he-liquorcrate" description="A glass of fresh water." Tags="smallitem,drinkitem,water,glass,fullglass,allowinfryer" scale="0.5" impactsoundtag="impact_bottle_glass" impacttolerance="5.5" useinhealthinterface="false" requireaimtouse="true" isshootable="True" health="4" >
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="276,0,17,34" depth="0.499" origin="0.5,0.5" />
       <InventoryIcon texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="276,0,17,34" origin="0.5,0.5" />
       <ContainedSprite allowedcontainertags="table" texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="276,0,17,34" depth="0.525" origin="0.5,0.7"  />
@@ -1817,7 +1817,7 @@
       </ItemComponent>
     </Item>
     
-    <Item name="Glass of 'Strawberry Milk'" identifier="he-bloodmilkglass" category="Misc" subcategory="Drinks" maxstacksize="1" cargocontaineridentifier="he-liquorcrate" description="A glass of fresh water." Tags="smallitem,drinkitem,cleanwater,water,glass,fullglass,allowinfryer" scale="0.5" impactsoundtag="impact_bottle_glass" impacttolerance="5.5" useinhealthinterface="false" requireaimtouse="true" isshootable="True" health="4" >
+    <Item name="Glass of 'Strawberry Milk'" identifier="he-bloodmilkglass" category="Misc" subcategory="Drinks" maxstacksize="1" cargocontaineridentifier="he-liquorcrate" description="A glass of fresh water." Tags="smallitem,drinkitem,water,glass,fullglass,allowinfryer" scale="0.5" impactsoundtag="impact_bottle_glass" impacttolerance="5.5" useinhealthinterface="false" requireaimtouse="true" isshootable="True" health="4" >
       <Sprite texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="276,35,17,34" depth="0.499" origin="0.5,0.5" />
       <InventoryIcon texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="276,35,17,34" origin="0.5,0.5" />
       <ContainedSprite allowedcontainertags="table" texture="%ModDir:3222593240%/Content/Sprites.png" sourcerect="276,35,17,34" depth="0.525" origin="0.5,0.7"  />
