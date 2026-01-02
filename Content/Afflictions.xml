@@ -76,6 +76,7 @@
       </PeriodicEffect>
       <icon texture="Content/UI/CommandUIAtlas.png" sourcerect="896,896,128,128" origin="0,0"/>
     </Affliction>
+
     <!-- DRUNKNESS OVERRIDE | WHILE DRUNK, COUNTER THE PASSIVE HEALING OF LIVER DAMAGE -->
       <Affliction name="Drunk"
       identifier="drunk"
@@ -281,6 +282,7 @@
       
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,640,128,128" color="170,194,147,255" origin="0,0" />
     </Affliction>
+
     <!-- TRACK ALCOHOL INTAKE AFFLICTION TO CAUSE LIVER DAMAGE IF TOO MUCH ALCOHOL WAS CONSUMED IN A SHORT TIME -->
     <Affliction
       name="Track Alcohol Intake"
@@ -308,6 +310,7 @@
       </Effect>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="896,768,128,128" color="195,136,60,255" origin="0,0"/>
     </Affliction>
+
     <!-- ADRENALINE OVERRIDE TO ADD BACK THE ABILITY TO ALWAYS STAY CONSCIOUS WHILE ADRENALINE IS ACTIVE SINCE NT REMOVED IT BUT HUNGRY EUROPANS RELIES ON THAT MECHANIC -->
     <Affliction identifier="adrenalinerush" type="adrenaline" isbuff="true" limbspecific="false" maxstrength="15" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
       <Description textidentifier="afflictiondescription.adrenalinerush.self" target="Self" />
@@ -327,6 +330,7 @@
       </Effect>
       <Icon texture="Content/UI/TalentsIcons4.png" sourcerect="768,256,128,128" color="10,193,114,255" origin="0,0" />
     </Affliction>
+
     <!-- SECOND ADRENALINE RUSH AFFLICTION TO MAKE THE PLAYER RESISTANT TO SYM_UNCONSCIOUSNESS AFFLICTION | APPLIED BY ADRENALINE -->
     <Affliction identifier="adrenalinerush2"
      type="adrenaline"
@@ -346,6 +350,38 @@
     <Affliction identifier="temphealth" type="none" limbspecific="false" maxstrength="100" showiconthreshold="1000" showicontoothersthreshold="1000" showinhealthscannerthreshold="1000" iconcolors="33,75,78;126,211,224;126,211,224;227,247,249">
       <Effect minstrength="0" maxstrength="10" strengthchange="-1" resistancefor="stun" minresistance="0" maxresistance="0.5" minvitalitydecrease="-0" maxvitalitydecrease="-95" />
       <Icon texture="Content/UI/TalentsIcons4.png" sourcerect="768,256,128,128" color="10,193,114,255" origin="0,0" />
+    </Affliction>
+
+    <!-- Compatibility changes: reduces NT alcoholaddiction etc, reduces sepsis a little instead of vanilla infection -->
+    <Affliction identifier="he-bloodytobybuff"
+      type="buff"
+      limbspecific="false"
+      indicatorlimb="Torso"
+      activationthreshold="0"
+      showiconthreshold="1000"
+      showicontoothersthreshold="1000"
+      hideiconafterdelay="true"
+      showinhealthscannerthreshold="1000"
+      treatmentthreshold="1000"
+      maxstrength="10"
+      affectmachines="false"
+      MedicalSkillGain="0.0"
+      healableinmedicalclinic="false">
+      <Effect minstrength="0" maxstrength="10" strengthchange="-1">
+        <StatusEffect target="Character" multiplyafflictionsbymaxvitality="true">
+          <Affliction identifier="hallucinating" strength="8" />
+          <ReduceAffliction identifier="bloodloss" strength="4" />
+          <ReduceAffliction identifier="drunk" strength="8" />
+          <ReduceAffliction type="applydrunkeffect" strength="8" />
+          <ReduceAffliction identifier="alcoholaddiction" strength="1" />
+          <ReduceAffliction identifier="alcoholwithdrawal" strength="3" />
+          <ReduceAffliction identifier="chemaddiction" strength="3" />
+          <ReduceAffliction identifier="chemwithdrawal" strength="3" />
+          <ReduceAffliction identifier="he-tobaccoaddiction" strength="3" />
+          <ReduceAffliction identifier="sepsis" strength="0.5" />
+        </StatusEffect>
+      </Effect>
+      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,640,128,128" color="170,194,147,255" origin="0,0" />
     </Affliction>
   </Afflictions>
 </Override>
