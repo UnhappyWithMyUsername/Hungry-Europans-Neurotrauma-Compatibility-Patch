@@ -253,7 +253,7 @@
           <Remove />
         </StatusEffect>
         <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
-        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="0.1" comparison="Or">
+        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" interval="2" duration="2" comparison="Or">
           <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
           <Conditional HasStatusTag="activegrill" targetcontainer="true" />
           <Conditional HasStatusTag="activefryer" targetcontainer="true" />
@@ -313,7 +313,7 @@
           <Remove />
         </StatusEffect>
         <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
-        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="0.1" comparison="Or">
+        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="2" interval="2" comparison="Or">
           <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
           <Conditional HasStatusTag="activegrill" targetcontainer="true" />
           <Conditional HasStatusTag="activefryer" targetcontainer="true" />
@@ -373,7 +373,7 @@
           <Remove />
         </StatusEffect>
         <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
-        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="0.1" comparison="Or">
+        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="2" interval="2" comparison="Or">
           <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
           <Conditional HasStatusTag="activegrill" targetcontainer="true" />
           <Conditional HasStatusTag="activefryer" targetcontainer="true" />
@@ -433,7 +433,7 @@
           <Remove />
         </StatusEffect>
         <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
-        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="0.1" comparison="Or">
+        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="2" interval="2" comparison="Or">
           <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
           <Conditional HasStatusTag="activegrill" targetcontainer="true" />
           <Conditional HasStatusTag="activefryer" targetcontainer="true" />
@@ -494,7 +494,7 @@
           <Remove />
         </StatusEffect>
         <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
-        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="0.1" comparison="Or">
+        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="2" interval="2" comparison="Or">
           <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
           <Conditional HasStatusTag="activegrill" targetcontainer="true" />
           <Conditional HasStatusTag="activefryer" targetcontainer="true" />
