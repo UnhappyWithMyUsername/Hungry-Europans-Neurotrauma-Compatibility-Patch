@@ -1896,7 +1896,7 @@
       <PreferredContainer secondary="abandonedcrewcab" minamount="1" maxamount="1" spawnprobability="0.01" />
       <PreferredContainer secondary="crewcab" minamount="1" maxamount="3" spawnprobability="0.05" />
       <PreferredContainer primary="kitchen" secondary="crewcab"/>
-      <Fabricate suitablefabricators="cuttingboard" requiredtime="5" requiresrecipe="false" amount="1">
+      <Fabricate suitablefabricators="blender" requiredtime="5" requiresrecipe="false" amount="1">
         <RequiredItem tag="bloodbag" amount="1" UseCondition="True" MinCondition="0.25" />
         <RequiredItem identifier="he-milk" amount="1" UseCondition="true" MinCondition="0.2499" />
         <RequiredItem identifier="he-emptyglass" amount="1" UseCondition="False" MinCondition="0.0" />
