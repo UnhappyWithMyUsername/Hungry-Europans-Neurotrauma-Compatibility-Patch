@@ -378,7 +378,7 @@
           <ReduceAffliction identifier="chemaddiction" strength="3" />
           <ReduceAffliction identifier="chemwithdrawal" strength="3" />
           <ReduceAffliction identifier="he-tobaccoaddiction" strength="3" />
-          <ReduceAffliction identifier="sepsis" strength="0.5" />
+          <ReduceAffliction identifier="sepsis" strength="2" />
         </StatusEffect>
       </Effect>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,640,128,128" color="170,194,147,255" origin="0,0" />
