@@ -383,5 +383,28 @@
       </Effect>
       <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,640,128,128" color="170,194,147,255" origin="0,0" />
     </Affliction>
+
+    <!-- brain juice affliction -->
+    <Affliction identifier="he-brainjuicebuff"
+      type="buff"
+      limbspecific="false"
+      indicatorlimb="Torso"
+      activationthreshold="0"
+      showiconthreshold="1000"
+      showicontoothersthreshold="1000"
+      hideiconafterdelay="true"
+      showinhealthscannerthreshold="1000"
+      treatmentthreshold="1000"
+      maxstrength="80"
+      affectmachines="false"
+      MedicalSkillGain="0.0"
+      healableinmedicalclinic="false">
+      <Effect minstrength="0" maxstrength="80" strengthchange="-1" minskillmultiplier="1" maxskillmultiplier="2">
+        <StatusEffect target="Character" multiplyafflictionsbymaxvitality="true" cangivemedicalskill="false">
+          <ReduceAffliction identifier="cerebralhypoxia" strength="1" />
+        </StatusEffect>
+      </Effect>
+      <icon texture="Content/UI/MainIconsAtlas.png" sourcerect="384,640,128,128" color="170,194,147,255" origin="0,0" />
+    </Affliction>
   </Afflictions>
 </Override>
