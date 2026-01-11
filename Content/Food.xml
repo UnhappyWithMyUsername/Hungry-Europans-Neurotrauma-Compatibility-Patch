@@ -43,7 +43,7 @@
         </StatusEffect>
       </Holdable>
     </Item>
-    <!-- Adrenaline override to fix it from not waking up unconscious players (NT removed all effects from Meleeweapon and doesn't seem to account for sym_unconsciousness affliction) -->
+    <!-- Adrenaline override to fix it from not waking up unconscious players (NT removed all effects from Meleeweapon and doesn't seem to account for sym_unconsciousness affliction) --><!--
     <Item name="" identifier="adrenaline" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
       <PreferredContainer primary="medfabcab" secondary="medcontainer" />
@@ -78,13 +78,13 @@
           <Affliction identifier="nausea" amount="4.0" />
           <Affliction identifier="organdamage" amount="0.25" />
         </StatusEffect>
-        <!-- Remove the item when fully used -->
+
         <StatusEffect type="OnBroken" target="This">
           <Remove />
         </StatusEffect>
       </MeleeWeapon>
       <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="false" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
-    </Item>
+    </Item> -->
 
     <!-- MEALS -->
     <!-- overridden to add new recipe with NT limbs -->
