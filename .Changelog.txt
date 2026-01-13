@@ -1,4 +1,4 @@
-
+Oct 25, 2025
 - Made glass fragments more NT friendly by applying foreign body and internal bleeding when consumed instead of vanilla organ damage
 - Fixed cooked/roasted/burned organs not being properly edible
 - Fixed surgery table not allowing you to sleep
