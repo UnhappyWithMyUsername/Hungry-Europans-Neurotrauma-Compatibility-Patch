@@ -44,41 +44,6 @@
       </Holdable>
     </Item>
 
-    <!-- revert adrenaline to nt function -->
-    <Item name="" identifier="adrenaline" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
-      <Upgrade gameversion="0.10.0.0" scale="0.5" />
-      <PreferredContainer primary="medfabcab" secondary="medcontainer"/>
-      <PreferredContainer secondary="abandonedmedcab,wreckmedcab" minamount="1" maxamount="2" spawnprobability="0.5" />
-      <Price baseprice="60">
-        <Price storeidentifier="merchantoutpost" sold="false" multiplier="1.25" />
-        <Price storeidentifier="merchantcity" sold="false" multiplier="1.25" />
-        <Price storeidentifier="merchantresearch" multiplier="0.9" minavailable="4" />
-        <Price storeidentifier="merchantmilitary" multiplier="0.9" minavailable="2" />
-        <Price storeidentifier="merchantmine" sold="false" multiplier="1.1" />
-        <Price storeidentifier="merchantmedical" multiplier="0.9" minavailable="4" />
-      </Price>
-      <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="129,448,62,64" origin="0.5,0.5" />
-      <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="301,209,37,72" depth="0.6" origin="0.5,0.5" />
-      <Body width="25" height="55" density="10.2" waterdragcoefficient="1"/>
-      <SuitableTreatment identifier="cardiacarrest" suitability="100"/>
-      <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
-        <StatusEffect type="OnBroken" target="This">
-          <Remove/>
-        </StatusEffect>
-        <StatusEffect type="OnUse" target="UseTarget">
-          <LuaHook name="NT.runItemMethod"/>
-        </StatusEffect>
-      </MeleeWeapon>
-      <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="false" launchrotation="-90">
-        <StatusEffect type="OnBroken" target="This">
-          <Remove/>
-        </StatusEffect>
-        <StatusEffect type="OnImpact" target="UseTarget">
-          <LuaHook name="NT.runItemMethod"/>
-        </StatusEffect>
-      </Projectile>
-    </Item>
-
     <!-- MEALS -->
     <!-- overridden to add new recipe with NT limbs -->
     <Item hideinmenus="false" name="Plate of Human Limbs" identifier="he-cookedhumanlimbs" variantof="he-poisoneffectpreset_fork" health="18" category="Misc" subcategory="Food - Human" maxstacksize="1" maxstacksizecharacterinventory="1" cargocontaineridentifier="metalcrate" description="" Tags="smallitem,fooditem,forkfood,foodplate,petfood1,petfood2,petfood3" useinhealthinterface="false" scale="0.5" impactsoundtag="impact_bottle_glass" isshootable="True" requireaimtouse="True">
