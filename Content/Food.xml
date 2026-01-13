@@ -43,10 +43,11 @@
         </StatusEffect>
       </Holdable>
     </Item>
-    <!-- Adrenaline override to fix it from not waking up unconscious players (NT removed all effects from Meleeweapon and doesn't seem to account for sym_unconsciousness affliction) --><!--
+
+    <!-- revert adrenaline to nt function -->
     <Item name="" identifier="adrenaline" category="Medical,Material" maxstacksize="32" maxstacksizecharacterinventory="8" cargocontaineridentifier="mediccrate" Tags="smallitem,chem,medical,syringe" useinhealthinterface="true" scale="0.5" impactsoundtag="impact_metal_light" RequireAimToUse="True">
       <Upgrade gameversion="0.10.0.0" scale="0.5" />
-      <PreferredContainer primary="medfabcab" secondary="medcontainer" />
+      <PreferredContainer primary="medfabcab" secondary="medcontainer"/>
       <PreferredContainer secondary="abandonedmedcab,wreckmedcab" minamount="1" maxamount="2" spawnprobability="0.5" />
       <Price baseprice="60">
         <Price storeidentifier="merchantoutpost" sold="false" multiplier="1.25" />
@@ -58,33 +59,25 @@
       </Price>
       <InventoryIcon texture="Content/Items/InventoryIconAtlas2.png" sourcerect="129,448,62,64" origin="0.5,0.5" />
       <Sprite texture="Content/Items/Medical/Medicines.png" sourcerect="301,209,37,72" depth="0.6" origin="0.5,0.5" />
-      <Body width="25" height="55" density="10.2" waterdragcoefficient="1" />
-      <SuitableTreatment identifier="cardiacarrest" suitability="100" />
+      <Body width="25" height="55" density="10.2" waterdragcoefficient="1"/>
+      <SuitableTreatment identifier="cardiacarrest" suitability="100"/>
       <MeleeWeapon canBeCombined="true" removeOnCombined="true" slots="Any,RightHand,LeftHand" aimpos="40,5" handle1="0,0" holdangle="220" reload="1.0" msg="ItemMsgPickUpSelect" HitOnlyCharacters="true">
-        <StatusEffect type="OnSuccess" target="This" Condition="-100.0" setvalue="true"/>
-        <StatusEffect type="OnSuccess" target="UseTarget">
-          <Conditional entitytype="eq Character"/>
-          <Sound file="Content/Items/Medical/Syringe.ogg" range="500" />
-        </StatusEffect>
-        <StatusEffect type="OnImpact" target="UseTarget" multiplyafflictionsbymaxvitality="true" AllowWhenBroken="true">
-          <Affliction identifier="stun" amount="0.1" />
-        </StatusEffect>
-        <StatusEffect type="OnSuccess" target="UseTarget" disabledeltatime="true" allowwhenbroken="true">
-          <Affliction identifier="adrenalinerush" amount="20" />
-          <Affliction identifier="adrenalinerush2" amount="20" />
-          <ReduceAffliction identifier="sym_unconsciousness" amount="1000" />
-        </StatusEffect>
-        <StatusEffect statuseffecttags="medical" type="OnSuccess" delay="8" target="UseTarget" duration="10.0">
-          <Affliction identifier="nausea" amount="4.0" />
-          <Affliction identifier="organdamage" amount="0.25" />
-        </StatusEffect>
-
         <StatusEffect type="OnBroken" target="This">
-          <Remove />
+          <Remove/>
+        </StatusEffect>
+        <StatusEffect type="OnUse" target="UseTarget">
+          <LuaHook name="NT.runItemMethod"/>
         </StatusEffect>
       </MeleeWeapon>
-      <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="false" launchrotation="-90" inheritstatuseffectsfrom="MeleeWeapon" inheritrequiredskillsfrom="MeleeWeapon" />
-    </Item> -->
+      <Projectile characterusable="false" launchimpulse="18.0" sticktocharacters="false" launchrotation="-90">
+        <StatusEffect type="OnBroken" target="This">
+          <Remove/>
+        </StatusEffect>
+        <StatusEffect type="OnImpact" target="UseTarget">
+          <LuaHook name="NT.runItemMethod"/>
+        </StatusEffect>
+      </Projectile>
+    </Item>
 
     <!-- MEALS -->
     <!-- overridden to add new recipe with NT limbs -->
