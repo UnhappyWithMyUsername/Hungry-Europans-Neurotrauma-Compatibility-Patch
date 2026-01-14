@@ -512,7 +512,7 @@
         </StatusEffect>
       </Effect>
 
-      <icon texture="%ModDir%/Images/AfflictionIcons.png" sheetindex="2,1" sheetelementsize="128,128" origin="0,0"/>
+      <icon texture="%ModDir:3190189044%/Images/AfflictionIcons.png" sheetindex="2,1" sheetelementsize="128,128" origin="0,0"/>
     </Affliction>
   </Afflictions>
 </Override>
