@@ -434,7 +434,7 @@
           <ReduceAffliction type="bleeding" strength="0.1"/>
           <ReduceAffliction identifier="internalbleeding" strength="0.1"/>
           <ReduceAffliction identifier="chemwithdrawal" strength="0.1"/>
-          <ReduceAffliction identifier="mood" amount="0.5"/>
+          <ReduceAffliction identifier="mood" amount="0.05"/>
         </StatusEffect>
       </Effect>
       <Effect minstrength="10" maxstrength="100"
@@ -449,7 +449,7 @@
           <ReduceAffliction identifier="bleeding" strength="0.2"/>
           <ReduceAffliction identifier="internalbleeding" strength="0.2"/>
           <ReduceAffliction identifier="chemwithdrawal" strength="0.2"/>
-          <ReduceAffliction identifier="mood" amount="0.5"/>
+          <ReduceAffliction identifier="mood" amount="0.05"/>
         </StatusEffect>
       </Effect>
       <Icon texture="Content/UI/TalentsIcons2.png" sheetindex="2,6" sheetelementsize="128,128" color="10,193,114,255" origin="0,0"/>
