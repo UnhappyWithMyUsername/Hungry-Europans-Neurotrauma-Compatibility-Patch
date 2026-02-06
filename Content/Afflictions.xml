@@ -299,12 +299,12 @@
       <Effect minstrength="0" maxstrength="60" strengthchange="-1" />
       <Effect minstrength="60" maxstrength="1204" strengthchange="-1">
         <StatusEffect target="Character" multiplyafflictionsbymaxvitality="true">
-          <Conditional he-alcoholism="lt 20" />
+          <Conditional alcoholaddiction="lt 20" />
           <Affliction identifier="liverdamage" amount="0.05" />
         </StatusEffect>
         <!-- deal less damage for alcoholics -->
         <StatusEffect target="Character" multiplyafflictionsbymaxvitality="true">
-          <Conditional he-alcoholism="gte 20" />
+          <Conditional alcoholaddiction="gte 20" />
           <Affliction identifier="liverdamage" amount="0.025" />
         </StatusEffect>
       </Effect>
