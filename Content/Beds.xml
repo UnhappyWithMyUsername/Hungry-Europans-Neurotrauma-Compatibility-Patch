@@ -22,8 +22,8 @@
           <ReduceAffliction identifier="opiateaddiction" strength="0.05" />
           <ReduceAffliction identifier="chemwithdrawal" strength="0.05" />
           <ReduceAffliction identifier="chemaddiction" strength="0.05" />
-          <ReduceAffliction identifier="he-alcoholwithdrawal" strength="0.05" />
-          <ReduceAffliction identifier="he-alcoholism" strength="0.05" />
+          <ReduceAffliction identifier="alcoholwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="alcoholaddiction" strength="0.05" />
           <ReduceAffliction identifier="drunk" strength="0.05" />
           <ReduceAffliction identifier="trackalcoholintake" strength="0.05" />
           <ReduceAffliction identifier="concussion" strength="0.02" />
@@ -74,8 +74,8 @@
           <ReduceAffliction identifier="opiateaddiction" strength="0.05" />
           <ReduceAffliction identifier="chemwithdrawal" strength="0.05" />
           <ReduceAffliction identifier="chemaddiction" strength="0.05" />
-          <ReduceAffliction identifier="he-alcoholwithdrawal" strength="0.05" />
-          <ReduceAffliction identifier="he-alcoholism" strength="0.05" />
+          <ReduceAffliction identifier="alcoholwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="alcoholaddiction" strength="0.05" />
           <ReduceAffliction identifier="drunk" strength="0.05" />
           <ReduceAffliction identifier="trackalcoholintake" strength="0.05" />
           <ReduceAffliction identifier="concussion" strength="0.02" />
@@ -134,8 +134,8 @@
           <ReduceAffliction identifier="opiateaddiction" strength="0.1" />
           <ReduceAffliction identifier="chemwithdrawal" strength="0.1" />
           <ReduceAffliction identifier="chemaddiction" strength="0.1" />
-          <ReduceAffliction identifier="he-alcoholwithdrawal" strength="0.1" />
-          <ReduceAffliction identifier="he-alcoholism" strength="0.1" />
+          <ReduceAffliction identifier="alcoholwithdrawal" strength="0.1" />
+          <ReduceAffliction identifier="alcoholaddiction" strength="0.1" />
           <ReduceAffliction identifier="drunk" strength="0.1" />
           <ReduceAffliction identifier="trackalcoholintake" strength="0.05" />
           <ReduceAffliction identifier="concussion" strength="0.1" />
@@ -184,8 +184,8 @@
           <ReduceAffliction identifier="opiateaddiction" strength="0.05" />
           <ReduceAffliction identifier="chemwithdrawal" strength="0.05" />
           <ReduceAffliction identifier="chemaddiction" strength="0.05" />
-          <ReduceAffliction identifier="he-alcoholwithdrawal" strength="0.05" />
-          <ReduceAffliction identifier="he-alcoholism" strength="0.05" />
+          <ReduceAffliction identifier="alcoholwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="alcoholaddiction" strength="0.05" />
           <ReduceAffliction identifier="drunk" strength="0.05" />
           <ReduceAffliction identifier="trackalcoholintake" strength="0.05" />
           <ReduceAffliction identifier="concussion" strength="0.02" />
@@ -234,8 +234,8 @@
           <ReduceAffliction identifier="opiateaddiction" strength="0.05" />
           <ReduceAffliction identifier="chemwithdrawal" strength="0.05" />
           <ReduceAffliction identifier="chemaddiction" strength="0.05" />
-          <ReduceAffliction identifier="he-alcoholwithdrawal" strength="0.05" />
-          <ReduceAffliction identifier="he-alcoholism" strength="0.05" />
+          <ReduceAffliction identifier="alcoholwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="alcoholaddiction" strength="0.05" />
           <ReduceAffliction identifier="drunk" strength="0.05" />
           <ReduceAffliction identifier="trackalcoholintake" strength="0.05" />
           <ReduceAffliction identifier="concussion" strength="0.02" />
@@ -406,8 +406,8 @@
           <reduceaffliction identifier="opiateaddiction" strength="0.05" />
           <ReduceAffliction identifier="chemwithdrawal" strength="0.05" />
           <ReduceAffliction identifier="chemaddiction" strength="0.05" />
-          <ReduceAffliction identifier="he-alcoholwithdrawal" strength="0.05" />
-          <ReduceAffliction identifier="he-alcoholism" strength="0.05" />
+          <ReduceAffliction identifier="alcoholwithdrawal" strength="0.05" />
+          <ReduceAffliction identifier="alcoholaddiction" strength="0.05" />
           <reduceaffliction identifier="drunk" strength="0.05" />
           <reduceaffliction identifier="concussion" strength="0.02" />
         </StatusEffect>
