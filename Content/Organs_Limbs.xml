@@ -35,16 +35,13 @@
           <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="10" velocitymin="200" velocitymax="300" scalemin="0.4" scalemax="0.8" />
           <Remove />
         </StatusEffect>
-        <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
-        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" interval="2" duration="2" stackable="false" comparison="Or">
-          <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
-          <Conditional HasStatusTag="activegrill" targetcontainer="true" />
-          <Conditional HasStatusTag="activefryer" targetcontainer="true" />
-        </StatusEffect>
         <!-- making the organ go kaputt if left outside of refrigeration -->
         <StatusEffect type="Always" target="This" condition="-2.5" delay="5" interval="5" disabledeltatime="true" conditionalComparison="And">
           <Conditional hastag="neq refrigerated" targetcontainer="true" />
-          <Conditional HasStatusTag="neq infabricator" />
+          <Conditional hastag="neq medicalfabricator" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq stove" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq fryer" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq grill" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
         </StatusEffect>
         <StatusEffect type="OnContained" target="This" condition="2.5" delay="5" interval="5" comparison="and">
           <Conditional condition="gte 90" />
@@ -95,16 +92,13 @@
           <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="10" velocitymin="200" velocitymax="300" scalemin="0.4" scalemax="0.8" />
           <Remove />
         </StatusEffect>
-        <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
-        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="2" interval="2" stackable="false" comparison="Or">
-          <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
-          <Conditional HasStatusTag="activegrill" targetcontainer="true" />
-          <Conditional HasStatusTag="activefryer" targetcontainer="true" />
-        </StatusEffect>
         <!-- making the organ go kaputt if left outside of refrigeration -->
         <StatusEffect type="Always" target="This" condition="-2.5" delay="5" interval="5" disabledeltatime="true" conditionalComparison="And">
           <Conditional hastag="neq refrigerated" targetcontainer="true" />
-          <Conditional HasStatusTag="neq infabricator" />
+          <Conditional hastag="neq medicalfabricator" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq stove" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq fryer" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq grill" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
         </StatusEffect>
         <StatusEffect type="OnContained" target="This" condition="0.5" delay="5" interval="5" comparison="and">
           <Conditional condition="gte 90" />
@@ -155,16 +149,13 @@
           <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="10" velocitymin="200" velocitymax="300" scalemin="0.4" scalemax="0.8" />
           <Remove />
         </StatusEffect>
-        <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
-        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="2" interval="2" stackable="false" comparison="Or">
-          <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
-          <Conditional HasStatusTag="activegrill" targetcontainer="true" />
-          <Conditional HasStatusTag="activefryer" targetcontainer="true" />
-        </StatusEffect>
         <!-- making the organ go kaputt if left outside of refrigeration -->
         <StatusEffect type="Always" target="This" condition="-2.5" delay="5" interval="5" disabledeltatime="true" conditionalComparison="And">
           <Conditional hastag="neq refrigerated" targetcontainer="true" />
-          <Conditional HasStatusTag="neq infabricator" />
+          <Conditional hastag="neq medicalfabricator" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq stove" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq fryer" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq grill" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
         </StatusEffect>
         <StatusEffect type="OnContained" target="This" condition="2.5" delay="5" interval="5" comparison="and">
           <Conditional condition="gte 90" />
@@ -215,16 +206,13 @@
           <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="10" velocitymin="200" velocitymax="300" scalemin="0.4" scalemax="0.8" />
           <Remove />
         </StatusEffect>
-        <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
-        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="2" interval="2" stackable="false" comparison="Or">
-          <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
-          <Conditional HasStatusTag="activegrill" targetcontainer="true" />
-          <Conditional HasStatusTag="activefryer" targetcontainer="true" />
-        </StatusEffect>
         <!-- making the organ go kaputt if left outside of refrigeration -->
         <StatusEffect type="Always" target="This" condition="-2.5" delay="5" interval="5" disabledeltatime="true" conditionalComparison="And">
           <Conditional hastag="neq refrigerated" targetcontainer="true" />
-          <Conditional HasStatusTag="neq infabricator" />
+          <Conditional hastag="neq medicalfabricator" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq stove" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq fryer" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq grill" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
         </StatusEffect>
         <StatusEffect type="OnContained" target="This" condition="2.5" delay="5" interval="5" comparison="and">
           <Conditional condition="gte 90" />
@@ -276,17 +264,14 @@
           <ParticleEmitter particle="fruitchunks" anglemin="0" anglemax="360" particleamount="10" velocitymin="200" velocitymax="300" scalemin="0.4" scalemax="0.8" />
           <Remove />
         </StatusEffect>
-        <!-- tag the item with "infabricator" if it's contained inside an active fabricator -->
-        <StatusEffect type="OnContained" target="This" StatusEffectTags="infabricator" duration="2" interval="2" stackable="false" comparison="Or">
-          <Conditional IsActive="eq true" targetitemcomponent="Fabricator" targetcontainer="true" />
-          <Conditional HasStatusTag="activegrill" targetcontainer="true" />
-          <Conditional HasStatusTag="activefryer" targetcontainer="true" />
-        </StatusEffect>
         <!-- making the organ go kaputt if left outside of refrigeration -->
         <StatusEffect type="Always" target="This" condition="-10" delay="5" interval="5" comparison="and" conditionalComparison="And">
           <Conditional hastag="neq refrigerated" targetcontainer="true" />
           <Conditional hastag="neq braincontainer" targetcontainer="true" />
-          <Conditional HasStatusTag="neq infabricator" />
+          <Conditional hastag="neq medicalfabricator" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq stove" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq fryer" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
+          <Conditional hastag="neq grill" Locked="neq true" targetitemcomponent="ItemContainer" targetcontainer="true" />
         </StatusEffect>
         <StatusEffect type="OnContained" target="This" condition="-2" delay="5" interval="5" comparison="and">
           <Conditional hastag="refrigerated" targetcontainer="true" />
